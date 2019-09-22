@@ -10,8 +10,7 @@ namespace Madome.Custom.Auth.iOS
 {
 	public class AccountManager : IAccountManager
 	{
-		[Obsolete]
-		public string Name {
+		public string Id {
 			get {
 				//TODO : iOS 에서 앱 이름 받아오는 코드 필요, 현재는 디렉토리 구해오는 코드로 대체됨
 				var account = AccountStore.Create().FindAccountsForService(AppContext.BaseDirectory).FirstOrDefault();
@@ -19,7 +18,6 @@ namespace Madome.Custom.Auth.iOS
 			}
 		}
 
-		[Obsolete]
 		public string Phone {
 			get {
 				var account = AccountStore.Create().FindAccountsForService("GOE").FirstOrDefault();
@@ -27,7 +25,6 @@ namespace Madome.Custom.Auth.iOS
 			}
 		}
 
-		[Obsolete]
 		public string Affiliation {
 			get {
 				var account = AccountStore.Create().FindAccountsForService("GOE").FirstOrDefault();
@@ -35,7 +32,6 @@ namespace Madome.Custom.Auth.iOS
 			}
 		}
 
-		[Obsolete]
 		public string Position {
 			get {
 				var account = AccountStore.Create().FindAccountsForService("GOE").FirstOrDefault();
