@@ -4,7 +4,8 @@ using Xamarin.Forms.Xaml;
 
 namespace Madome
 {
-    public partial class App : Application
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class App : Application
     {
         public App()
         {
