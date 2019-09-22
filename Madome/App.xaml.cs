@@ -10,7 +10,7 @@ namespace Madome
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new Views.Test();
         }
 
         protected override void OnStart()
