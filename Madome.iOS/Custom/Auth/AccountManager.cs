@@ -20,50 +20,49 @@ namespace Madome.Custom.Auth.iOS
 
 		public string Phone {
 			get {
-				var account = AccountStore.Create().FindAccountsForService("GOE").FirstOrDefault();
+				var account = AccountStore.Create().FindAccountsForService(App.Current.ClassId).FirstOrDefault();
 				return (account != null) ? account.Properties["Phone"] : null;
 			}
 		}
 
 		public string Affiliation {
 			get {
-				var account = AccountStore.Create().FindAccountsForService("GOE").FirstOrDefault();
+				var account = AccountStore.Create().FindAccountsForService(App.Current.ClassId).FirstOrDefault();
 				return (account != null) ? account.Properties["Affiliation"] : null;
 			}
 		}
 
 		public string Position {
 			get {
-				var account = AccountStore.Create().FindAccountsForService("GOE").FirstOrDefault();
+				var account = AccountStore.Create().FindAccountsForService(App.Current.ClassId).FirstOrDefault();
 				return (account != null) ? account.Properties["Position"] : null;
 			}
 		}
 
 		public bool LoginExists {
 			get {
-				if (AccountStore.Create().FindAccountsForService("GOE").Any())
+				if (AccountStore.Create().FindAccountsForService(App.Current.ClassId).Any())
 					return true;
 				else
 					return false;
 			}
 		}
+		public string Name => throw new NotImplementedException();
 
-		public bool isEtri {
-			get {
-				var account = AccountStore.Create().FindAccountsForService("GOE").FirstOrDefault();
-				return (account != null) ? Convert.ToBoolean(account.Properties["Position"]) : false;
-			}
-		}
+		public string Email => throw new NotImplementedException();
+
+		public DateTime CreatedAt => throw new NotImplementedException();
+
 		public void Delete()
 		{
-			var account = AccountStore.Create().FindAccountsForService("GOE").FirstOrDefault();
+			var account = AccountStore.Create().FindAccountsForService(App.Current.ClassId).FirstOrDefault();
 			if (account != null) {
-				AccountStore.Create().Delete(account, "GOE");
+				AccountStore.Create().Delete(account, App.Current.ClassId);
 			}
 		}
 
 
-		public void Save(string id, string phone, string affiliation, string position, bool isEtri)
+		public void Save(string id, string phone, string affiliation, string position)
 		{
 			if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(phone)
 				&& string.IsNullOrWhiteSpace(affiliation) && string.IsNullOrWhiteSpace(position)) {
@@ -73,11 +72,13 @@ namespace Madome.Custom.Auth.iOS
 				account.Properties.Add("Phone", phone);
 				account.Properties.Add("Affiliation", affiliation);
 				account.Properties.Add("Position", position);
-				account.Properties.Add("isEtri", position);
-				AccountStore.Create().SaveAsync(account, "GOE");
+				AccountStore.Create().SaveAsync(account, App.Current.ClassId);
 			}
 		}
 
+		public void Save(string name, string id, string email, DateTime createdAt) {
+			throw new NotImplementedException();
+		}
 	}
 	
 }

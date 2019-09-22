@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using CoreFoundation;
 using SystemConfiguration;
 
 namespace GOE.Helpers.iOS {

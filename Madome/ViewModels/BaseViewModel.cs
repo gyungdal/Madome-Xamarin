@@ -17,14 +17,14 @@ namespace Madome.ViewModels
             get => DependencyService.Get<IAccountManager>();
         }
 
-        public string getUserAffiliation
+        public string getUserID
         {
-            get => account.Affiliation;
+            get => account.Id;
         }
 
-        public string getUserPhoneNumber
+        public string getUserEmail
         {
-            get => account.Phone;
+            get => account.Email;
         }
 
         public string getUserName
