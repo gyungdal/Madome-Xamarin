@@ -31,10 +31,10 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-<RunCodeAnalysis>true</RunCodeAnalysis><AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
-<AndroidDexTool>d8</AndroidDexTool>
+<RunCodeAnalysis>true</RunCodeAnalysis><AndroidDexTool>d8</AndroidDexTool>
 <AndroidLinkTool>r8</AndroidLinkTool>
 <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+<AndroidLinkMode>Full</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
