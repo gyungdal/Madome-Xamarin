@@ -1,10 +1,11 @@
 ﻿using System;
-using Android.Accounts;
 using Madome.Custom.Auth;
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Auth;
+using Xamarin.Essentials;
 using System.Linq;
+using Madome.Helpers;
 
 //TODO : https://github.com/xamarin/Xamarin.Auth/wiki/Migrating-from-AccountStore-to-Xamarin.Essentials-SecureStorage
 [assembly: Xamarin.Forms.Dependency(typeof(Madome.Custom.Auth.Droid.AccountManager))]
@@ -12,89 +13,31 @@ namespace Madome.Custom.Auth.Droid
 {
 	public class AccountManager : IAccountManager
 	{
-		public string Name
-		{
-			get
-			{
-				var accounts = AccountStore.Create(Forms.Context).FindAccountsForService("GOE").ToArray();
-				foreach (var account in accounts)
-				{
-					if (account != null)
-						return account.Username;
-				}
-				return null;
+		
+		private async Task<Account> getAccount() {
+			List<Account> accounts = await SecureAccountStore.Instance.FindAccountsForServiceAsync(AppInfo.PackageName);
+			foreach (var account in accounts) {
+				if (account != null)
+					return Convert.ToBoolean(account.Properties["isEtri"]);
 			}
-		}
-		public string Phone
-		{
-			get
-			{
-				var accounts = AccountStore.Create(Forms.Context).FindAccountsForService("GOE").ToArray();
-				foreach (var account in accounts)
-				{
-					if (account != null)
-						return account.Properties["Phone"];
-				}
-				return null;
-			}
+			return false;
 		}
 
-		public string Affiliation
-		{
-			get
-			{
-				var accounts = AccountStore.Create(Forms.Context).FindAccountsForService("GOE").ToArray();
-				foreach (var account in accounts)
-				{
-					if (account != null)
-						return account.Properties["Affiliation"];
-				}
-				return null;
-			}
-		}
+		public string Name => throw new NotImplementedException();
 
-		public bool isEtri
-		{
-			get
-			{
-				var accounts = AccountStore.Create(Forms.Context).FindAccountsForService("GOE").ToArray();
-				foreach (var account in accounts)
-				{
-					if (account != null)
-						return Convert.ToBoolean(account.Properties["isEtri"]);
-				}
-				return false;
-			}
-		}
-		public string Position
-		{
-			get
-			{
-				var accounts = AccountStore.Create(Forms.Context).FindAccountsForService("GOE").ToArray();
-				foreach (var account in accounts)
-				{
-					if (account != null)
-						return account.Properties["Position"];
-				}
-				return null;
-			}
-		}
+		public string Phone => throw new NotImplementedException();
 
-		public bool LoginExists
-		{
-			get
-			{
-				var accounts = AccountStore.Create(Forms.Context).FindAccountsForService("GOE");
-				var enumerable = accounts as IList<Account> ?? accounts.ToList();
-				if (enumerable.Any())
-					return false;
-				else
-					return true;
-			}
-		}
+		public string Affiliation => throw new NotImplementedException();
+
+		public string Position => throw new NotImplementedException();
+
+		public bool LoginExists => throw new NotImplementedException();
+
+		public bool isEtri => throw new NotImplementedException();
+
 		public void Delete()
 		{
-			var accounts = AccountStore.Create(Forms.Context).FindAccountsForService("GOE").ToList();
+			var accounts = AccountStore.Create(Forms.Context).FindAccountsForService(App.Current.ClassId).ToList();
 			foreach (var account in accounts)
 			{
 				AccountStore.Create(Forms.Context).Delete(account, "GOE");
