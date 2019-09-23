@@ -12,20 +12,20 @@ namespace Madome.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Test : ContentPage
     {
-        public ObservableCollection<string> Items { get; set; }
+        public ObservableCollection<ImageSource> Items { get; set; }
 
         public Test()
         {
             InitializeComponent();
 
-            Items = new ObservableCollection<string>
+            Items = new ObservableCollection<ImageSource>
             {
-                "Item 1",
-                "Item 2",
-                "Item 3",
-                "Item 4",
-                "Item 5"
-            };
+				ImageSource.FromUri(new Uri("https://static.zerochan.net/Shiratsuyu.%28Kantai.Collection%29.full.2076678.jpg")),
+				ImageSource.FromUri(new Uri("https://static.zerochan.net/Shiratsuyu.%28Kantai.Collection%29.full.2676837.jpg")),
+				ImageSource.FromUri(new Uri("https://i.pximg.net/img-original/img/2019/09/10/00/00/02/76707946_p0.png")),
+				ImageSource.FromUri(new Uri("https://i.pximg.net/img-original/img/2019/08/18/00/00/02/76315148_p0.png")),
+				ImageSource.FromUri(new Uri("https://i.pximg.net/img-master/img/2019/07/31/00/00/02/75992834_p0_master1200.jpg"))
+			};
 
             MyListView.ItemsSource = Items;
         }

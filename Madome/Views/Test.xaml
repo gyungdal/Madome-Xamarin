@@ -10,7 +10,7 @@
     <!--Built in Cells-->
     <ListView.ItemTemplate>
         <DataTemplate>
-            <TextCell Text="{Binding .}" />
+            <ImageCell  ImageSource="{Binding .}" />
         </DataTemplate>
     </ListView.ItemTemplate>
     

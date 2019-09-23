@@ -8,12 +8,13 @@ using Xamarin.Auth;
 [assembly: Xamarin.Forms.Dependency(typeof(Madome.Custom.Auth.iOS.AccountManager))]
 namespace Madome.Custom.Auth.iOS
 {
+	[Obsolete]
 	public class AccountManager : IAccountManager
 	{
 		public string Id {
 			get {
 				//TODO : iOS 에서 앱 이름 받아오는 코드 필요, 현재는 디렉토리 구해오는 코드로 대체됨
-				var account = AccountStore.Create().FindAccountsForService(AppContext.BaseDirectory).FirstOrDefault();
+				var account = AccountStore.Create().FindAccountsForService(App.Current.ClassId).FirstOrDefault();
 				return (account != null) ? account.Username : null;
 			}
 		}
