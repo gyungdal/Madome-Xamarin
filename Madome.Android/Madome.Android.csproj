@@ -31,9 +31,10 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-<RunCodeAnalysis>true</RunCodeAnalysis><AndroidDexTool>d8</AndroidDexTool>
+<AndroidDexTool>d8</AndroidDexTool>
 <AndroidLinkTool>r8</AndroidLinkTool>
 <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+<JavaMaximumHeapSize>4G</JavaMaximumHeapSize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,9 +45,11 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-<RunCodeAnalysis>true</RunCodeAnalysis>  <AndroidDexTool>d8</AndroidDexTool>
+<AndroidDexTool>d8</AndroidDexTool>
 <AndroidLinkTool>r8</AndroidLinkTool>
 <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
+<JavaMaximumHeapSize>2G</JavaMaximumHeapSize>
+<AndroidSupportedAbis>armeabi-v7a;arm64-v8a;x86;x86_64</AndroidSupportedAbis>
 </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
