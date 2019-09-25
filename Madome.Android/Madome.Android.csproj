@@ -24,6 +24,7 @@
     <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
+    <JavaMaximumHeapSize>4G</JavaMaximumHeapSize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,10 +39,9 @@
 <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
 <JavaMaximumHeapSize>4G</JavaMaximumHeapSize>
 <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
+<LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>portable</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
@@ -50,7 +50,9 @@
 <AndroidDexTool>d8</AndroidDexTool>
 <AndroidLinkTool>r8</AndroidLinkTool>
 <JavaMaximumHeapSize>2G</JavaMaximumHeapSize>
-<AndroidSupportedAbis>armeabi-v7a;arm64-v8a;x86;x86_64</AndroidSupportedAbis>
+<AndroidSupportedAbis>armeabi-v7a;arm64-v8a;x86_64</AndroidSupportedAbis>
+<RunCodeAnalysis>true</RunCodeAnalysis><LangVersion>latest</LangVersion>
+<PlatformTarget>x64</PlatformTarget>
 </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />

@@ -52,7 +52,7 @@
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchFastDev>true</MtouchFastDev>
-  </PropertyGroup>
+<RunCodeAnalysis>true</RunCodeAnalysis>  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
@@ -63,7 +63,10 @@
     <CodesignKey>iPhone Developer: admin@gyungdal.cc (M9MR58F46G)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchUseLlvm>true</MtouchUseLlvm>
-<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+<RunCodeAnalysis>true</RunCodeAnalysis><DeviceSpecificBuild>true</DeviceSpecificBuild>
+<MtouchFastDev>true</MtouchFastDev>
+<BuildIpa>true</BuildIpa>
+<IpaIncludeArtwork>true</IpaIncludeArtwork>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />

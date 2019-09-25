@@ -3,14 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Madome.Views.Test">
   <ListView x:Name="MyListView"
+            HasUnevenRows="True"
             ItemsSource="{Binding Items}"
             ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement">
-            
+           
     <!--Built in Cells-->
     <ListView.ItemTemplate>
         <DataTemplate>
-            <ImageCell  ImageSource="{Binding .}" />
+            <ViewCell>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Source="{Binding .}" Aspect="AspectFit"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="TEST" LineBreakMode="TailTruncation" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="test" Font="Small"  TextColor="Gray" LineBreakMode="TailTruncation"/>
+                    
+                </Grid>
+            </ViewCell>
         </DataTemplate>
     </ListView.ItemTemplate>
     

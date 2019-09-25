@@ -22,9 +22,9 @@ namespace Madome.Views
             {
 				ImageSource.FromUri(new Uri("https://static.zerochan.net/Shiratsuyu.%28Kantai.Collection%29.full.2076678.jpg")),
 				ImageSource.FromUri(new Uri("https://static.zerochan.net/Shiratsuyu.%28Kantai.Collection%29.full.2676837.jpg")),
-				ImageSource.FromUri(new Uri("https://i.pximg.net/img-original/img/2019/09/10/00/00/02/76707946_p0.png")),
-				ImageSource.FromUri(new Uri("https://i.pximg.net/img-original/img/2019/08/18/00/00/02/76315148_p0.png")),
-				ImageSource.FromUri(new Uri("https://i.pximg.net/img-master/img/2019/07/31/00/00/02/75992834_p0_master1200.jpg"))
+				ImageSource.FromUri(new Uri("https://i.imgur.com/zHgsN4s.png")),
+				ImageSource.FromUri(new Uri("https://i.imgur.com/YcMW2Qr.png")),
+				ImageSource.FromUri(new Uri("https://i.imgur.com/2Gvlihor.png"))
 			};
 
             MyListView.ItemsSource = Items;
