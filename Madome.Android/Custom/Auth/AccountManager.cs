@@ -9,8 +9,7 @@ using Madome.Helpers;
 using System.Threading.Tasks;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Madome.Custom.Auth.Droid.AccountManager))]
-namespace Madome.Custom.Auth.Droid
-{
+namespace Madome.Custom.Auth.Droid {
 	public class AccountManager : IAccountManager {
 		private readonly SecureAccountStore Store;
 		private readonly string AppName;
@@ -20,29 +19,35 @@ namespace Madome.Custom.Auth.Droid
 			AppName = AppInfo.Name;
 		}
 
-		public string Email() {
-			Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
-			if(account != null) {
-				return account.Username;
+		public string Email {
+			get {
+				Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
+				if(account != null) {
+					return account.Username;
+				}
+				return String.Empty;
 			}
-			return String.Empty;
 		}
 
 
-		public string Token() {
-			Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
-			if (account != null) {
-				return account.Properties["token"];
+		public string Token {
+			get {
+				Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
+				if (account != null) {
+					return account.Properties["token"];
+				}
+				return String.Empty;
 			}
-			return String.Empty;
 		}
 
-		public string Url() {
-			Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
-			if (account != null) {
-				return account.Properties["url"];
+		public string Url {
+			get {
+				Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
+				if (account != null) {
+					return account.Properties["url"];
+				}
+				return String.Empty;
 			}
-			return String.Empty;
 		}
 
 		public void Save(string url, string email, string token) {
@@ -53,16 +58,18 @@ namespace Madome.Custom.Auth.Droid
 			Store.SaveAsync(account, AppName).Wait();
 		}
 
-		public bool HasToken() {
-			Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
-			if(account != null) {
-				return !String.IsNullOrEmpty(account.Properties["token"]);
+		public bool HasToken {
+			get {
+				Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
+				if (account != null) {
+					return !String.IsNullOrEmpty(account.Properties["token"]);
+				}
+				return false;
 			}
-			return false;
 		}
 
 		public void DeleteToken() {
-			Save(Url(), String.Empty, String.Empty);
+			Save(Url, String.Empty, String.Empty);
 		}
 
 		public void Delete() {

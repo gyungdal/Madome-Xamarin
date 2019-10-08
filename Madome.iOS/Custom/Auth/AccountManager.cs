@@ -16,30 +16,40 @@ namespace Madome.Custom.Auth.iOS{
 			AppName = AppInfo.Name;
 		}
 
-		public string Email() {
-			JObject account = JObject.Parse(SecureStorage.GetAsync(AppName).Result);
-			if (!String.IsNullOrEmpty(account.GetValue("email").ToString())) {
-				return account.GetValue("email").ToString();
+		public string Email {
+			get {
+				JObject account = JObject.Parse(SecureStorage.GetAsync(AppName).Result);
+				if (!String.IsNullOrEmpty(account.GetValue("email").ToString())) {
+					return account.GetValue("email").ToString();
+				}
+				return String.Empty;
 			}
-			return String.Empty;
 		}
 
-
-		public string Token() {
-			JObject account = JObject.Parse(SecureStorage.GetAsync(AppName).Result);
-			if (!String.IsNullOrEmpty(account.GetValue("token").ToString())) {
-				return account.GetValue("token").ToString();
+		public string Token {
+			get {
+				JObject account = JObject.Parse(SecureStorage.GetAsync(AppName).Result);
+				if (!String.IsNullOrEmpty(account.GetValue("token").ToString())) {
+					return account.GetValue("token").ToString();
+				}
+				return String.Empty;
 			}
-			return String.Empty;
 		}
 
-		public string Url() {
-			JObject account = JObject.Parse(SecureStorage.GetAsync(AppName).Result);
-			if (!String.IsNullOrEmpty(account.GetValue("url").ToString())) {
-				return account.GetValue("url").ToString();
+		public string Url {
+			get {
+				JObject account = JObject.Parse(SecureStorage.GetAsync(AppName).Result);
+				if (!String.IsNullOrEmpty(account.GetValue("url").ToString())) {
+					return account.GetValue("url").ToString();
+				}
+				return String.Empty;
 			}
-			return String.Empty;
 		}
+
+		public bool HasToken {
+			get => !String.IsNullOrEmpty(Token);
+		}
+
 
 		public void Save(string url, string email, string token) {
 			JObject account = new JObject();
@@ -49,12 +59,8 @@ namespace Madome.Custom.Auth.iOS{
 			SecureStorage.SetAsync(AppName, account.ToString());
 		}
 
-		public bool HasToken() {
-			return !String.IsNullOrEmpty(Token());
-		}
-
 		public void DeleteToken() {
-			Save(Url(), String.Empty, String.Empty);
+			Save(Url, String.Empty, String.Empty);
 		}
 
 		public void Delete() {

@@ -5,21 +5,26 @@ using Xamarin.Forms;
 
 namespace Madome.ViewModels {
     public class BaseViewModel : ObservableObject {
-        public App AppCurrent {
-            get
-            {
-                return (App)Xamarin.Forms.Application.Current;
-            }
-        }
+		private readonly IAccountManager Account;
 
-        public IAccountManager Account
-			=> DependencyService.Get<IAccountManager>();
-        
+		public BaseViewModel() {
+			Account = DependencyService.Get<IAccountManager>();
+		}
+
+        public App AppCurrent
+			=> (App)Xamarin.Forms.Application.Current;
+            
 
 		public string GetUrl
 			=> Account.Url;
 
-		
+		public string GetEmail
+			=> Account.Email;
 
+		public string GetToken
+			=> Account.Token;
+
+		public bool HasToken
+			=> Account.HasToken;
     }
 }
