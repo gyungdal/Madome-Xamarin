@@ -8,11 +8,16 @@ using Android.Widget;
 using Android.OS;
 
 using Xamarin.Forms;
+using Plugin.CurrentActivity;
 
+namespace Madome.Droid {
 
-namespace Madome.Droid
-{
-    [Activity(Label = "Madome", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
+#if DEBUG
+	[Application(Debuggable = true)]
+#else
+	[Application(Debuggable = false)]
+#endif
+	[Activity(Label = "Madome", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
@@ -22,24 +27,14 @@ namespace Madome.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 			base.OnCreate(savedInstanceState);
 
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+			CrossCurrentActivity.Current.Init(this, savedInstanceState);
+			Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 			Madome.Resources.Screen.Width = (int)Resources.DisplayMetrics.WidthPixels;
 			Madome.Resources.Screen.Height = (int)Resources.DisplayMetrics.HeightPixels;
 			Madome.Resources.Screen.DPI = (int)Resources.DisplayMetrics.DensityDpi;
 			Madome.Resources.Screen.Density = Resources.DisplayMetrics.Density;
 			Madome.Resources.OS.Version = new Version((int)Android.OS.Build.VERSION.SdkInt, 0);
-			Madome.Resources.AppTheme.ChangeStatusBar = delegate (Color StatusBarColor) {
-				//Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
-				Android.Graphics.Color color = new Android.Graphics.Color();
-				color.A = (byte)(StatusBarColor.A * 255);
-				color.R = (byte)(StatusBarColor.R * 255);
-				color.G = (byte)(StatusBarColor.G * 255);
-				color.B = (byte)(StatusBarColor.B * 255);
-				Window.SetStatusBarColor(color);
-				return true;
-			};
-
 			LoadApplication(new App());
         }
 

@@ -79,7 +79,6 @@
     <Compile Include="Helpers\NetworkStatusManager.cs" />
     <Compile Include="Helpers\Reachability.cs" />
     <Compile Include="Custom\Renderer\HideLineEntryRenderer.cs" />
-    <Compile Include="Custom\Renderer\PageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

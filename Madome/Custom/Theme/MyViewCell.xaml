@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO : DarkMode https://noahgilmore.com/blog/dark-mode-uicolor-compatibility/ -->
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Madome.Custom.Theme.Theme">
+    <Color x:Key="label">#ffffffff</Color>
+    <Color x:Key="secondaryLabel">#99ebebf5</Color>
+    <Color x:Key="tertiaryLabel">#4cebebf5</Color>
+    <Color x:Key="quaternaryLabel">#2debebf5</Color>
+    <Color x:Key="systemFill">#5b787880</Color>
+    <Color x:Key="placeholderText">#4cebebf5</Color>
+    <Color x:Key="systemBackground">#ff000000</Color>
+    <Color x:Key="secondarySystemBackground">#ff1c1c1e</Color>
+    <Color x:Key="tertiarySystemBackground">#ff2c2c2e</Color>
+    <Color x:Key="separator">#99545458</Color>
+    <Color x:Key="opaqueSeparator">#ff38383a</Color>
+    <Color x:Key="link">#ff0984ff</Color>
+    <Color x:Key="darkText">#ff000000</Color>
+    <Color x:Key="lightText">#99ffffff</Color>
+    <Color x:Key="systemBlue">#ff0a84ff</Color>
+    <Color x:Key="systemPink">#ffff375f</Color>
+    <Color x:Key="systemPurple">#ffbf5af2</Color>
+    <Color x:Key="systemRed">#ffff453a</Color>
+    <Color x:Key="systemTeal">#ff64d2ff</Color>
+    <Color x:Key="systemYellow">#ffffd60a</Color>
+    <Color x:Key="systemGray">#ff8e8e93</Color>
+    <Color x:Key="systemGray2">#ff636366</Color>
+</ResourceDictionary>
