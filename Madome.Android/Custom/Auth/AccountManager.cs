@@ -8,63 +8,70 @@ using System.Linq;
 using Madome.Helpers;
 using System.Threading.Tasks;
 
-//TODO : https://github.com/xamarin/Xamarin.Auth/wiki/Migrating-from-AccountStore-to-Xamarin.Essentials-SecureStorage
 [assembly: Xamarin.Forms.Dependency(typeof(Madome.Custom.Auth.Droid.AccountManager))]
 namespace Madome.Custom.Auth.Droid
 {
-	public class AccountManager : IAccountManager
-	{
-		
-		public string Name => throw new NotImplementedException();
+	public class AccountManager : IAccountManager {
+		private readonly SecureAccountStore Store;
+		private readonly string AppName;
 
-		public string Phone => throw new NotImplementedException();
-
-		public string Affiliation => throw new NotImplementedException();
-
-		public string Position => throw new NotImplementedException();
-
-		public bool LoginExists => throw new NotImplementedException();
-
-		public bool isEtri => throw new NotImplementedException();
-
-		public string Id => throw new NotImplementedException();
-
-		public string Email => throw new NotImplementedException();
-
-		public DateTime CreatedAt => throw new NotImplementedException();
-
-		public void Delete()
-		{
-			var accounts = AccountStore.Create(Forms.Context).FindAccountsForService(App.Current.ClassId).ToList();
-			foreach (var account in accounts)
-			{
-				AccountStore.Create(Forms.Context).Delete(account, App.Current.ClassId);
-			}
+		AccountManager() {
+			Store = SecureAccountStore.Instance;
+			AppName = AppInfo.Name;
 		}
 
-		public void Save(string id, string phone, string affiliation, string position, bool isEtri)
-		{
-			string[] temp = { id, phone, affiliation, position };
-			foreach (var t in temp)
-			{
-				if (string.IsNullOrEmpty(t) | string.IsNullOrWhiteSpace(t))
-				{
-					System.Diagnostics.Debug.WriteLine("Account Save Error : Empty Value!");
-					return;
+		public string Email() {
+			Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
+			if(account != null) {
+				return account.Username;
+			}
+			return String.Empty;
+		}
+
+
+		public string Token() {
+			Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
+			if (account != null) {
+				return account.Properties["token"];
+			}
+			return String.Empty;
+		}
+
+		public string Url() {
+			Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
+			if (account != null) {
+				return account.Properties["url"];
+			}
+			return String.Empty;
+		}
+
+		public void Save(string url, string email, string token) {
+			Delete();
+			Account account = new Account(email);
+			account.Properties["token"] = token;
+			account.Properties["url"] = url;
+			Store.SaveAsync(account, AppName).Wait();
+		}
+
+		public bool HasToken() {
+			Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
+			if(account != null) {
+				return !String.IsNullOrEmpty(account.Properties["token"]);
+			}
+			return false;
+		}
+
+		public void DeleteToken() {
+			Save(Url(), String.Empty, String.Empty);
+		}
+
+		public void Delete() {
+			List<Account> accounts = Store.FindAccountsForServiceAsync(AppName).Result;
+			foreach (Account account in accounts) {
+				if (account != null) {
+					Store.RemoveAsync(account, AppName).Wait();
 				}
 			}
-			Xamarin.Auth.Account account = new Xamarin.Auth.Account
-			{
-				Username = id
-			};
-			account.Properties.Add("Phone", phone);
-			account.Properties.Add("Position", position);
-			account.Properties.Add("Affiliation", affiliation);
-			AccountStore.Create(Forms.Context).SaveAsync(account, App.Current.ClassId);
-		}
-
-		public void Save(string name, string id, string email, DateTime createdAt) {
-			throw new NotImplementedException();
 		}
 	}
 }
