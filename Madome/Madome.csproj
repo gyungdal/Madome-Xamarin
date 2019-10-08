@@ -32,9 +32,13 @@
     <Folder Include="Custom\" />
     <Folder Include="Custom\Auth\" />
     <Folder Include="Resources\" />
+    <Folder Include="Views\Prepare\" />
+    <Folder Include="ViewModels\Prepare\" />
+    <Folder Include="Custom\Control\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Resources\AppTheme.cs" />
     <Compile Remove="Custom\Auth\AccountManager.cs" />
+    <Compile Remove="Views\Prepare\XamlCompalationAttribute.cs" />
   </ItemGroup>
 </Project>

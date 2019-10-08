@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prepare="clr-namespace:Madome.ViewModels.Prepare"
+             xmlns:customControl="clr-namespace:Madome.Custom.Control"
+             x:DataType="prepare:SetHostViewModel"
+             x:Class="Madome.Views.Prepare.SetHostPage"
+             BackgroundColor="{StaticResource DarkBackground}">
+    <FlexLayout
+        Direction="Column"
+        AlignItems="Stretch"
+        JustifyContent="SpaceEvenly" >
+        <StackLayout >
+                    FontSize="Large" TextColor="{StaticResource White}"
+                    BackgroundColor="{StaticResource Transparent}"
+                    FlexLayout.AlignSelf="Start" Placeholder="서버 주소"/>
+            <Button Text="확인" FontSize="Large" FlexLayout.AlignSelf="Start"/>
+        </StackLayout>
+    </FlexLayout>
+</ContentPage>

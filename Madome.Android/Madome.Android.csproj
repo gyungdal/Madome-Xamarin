@@ -36,12 +36,16 @@
     <WarningLevel>4</WarningLevel>
 <AndroidDexTool>d8</AndroidDexTool>
 <AndroidLinkTool>r8</AndroidLinkTool>
-<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
 <JavaMaximumHeapSize>4G</JavaMaximumHeapSize>
-<AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
+<AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
 <LangVersion>latest</LangVersion>
+<AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+<AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
+<AndroidUseAapt2>false</AndroidUseAapt2>
+<AndroidEnableMultiDex>false</AndroidEnableMultiDex>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
@@ -103,6 +107,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Custom\Auth\AccountManager.cs" />
     <Compile Include="Helpers\NetworkStatusManager.cs" />
+    <Compile Include="Custom\Control\HideLineEntryRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -136,6 +141,7 @@
     <Folder Include="Custom\" />
     <Folder Include="Custom\Auth\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Custom\Control\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Madome\Madome.csproj">
