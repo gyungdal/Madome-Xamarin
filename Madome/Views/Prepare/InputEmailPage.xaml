@@ -18,7 +18,7 @@
                 FontSize="Large" IsSpellCheckEnabled="False" TextColor="{StaticResource label}"
                 IsTextPredictionEnabled="False" BackgroundColor="{StaticResource tertiarySystemBackground}"
                 FlexLayout.AlignSelf="Start" Placeholder="이메일 주소를 입력해주세요."/>
-            <Button Text="확인" FontSize="Default" FlexLayout.AlignSelf="Start"
+            <Button Text="확인" FontSize="Default" FlexLayout.AlignSelf="Start" BackgroundColor="{StaticResource invisible}"
                     Clicked="button_click" TextColor="{StaticResource systemYellow}"/>
         </StackLayout>
     </FlexLayout>

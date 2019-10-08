@@ -26,4 +26,5 @@
     <Color x:Key="systemYellow">#ffffd60a</Color>
     <Color x:Key="systemGray">#ff8e8e93</Color>
     <Color x:Key="systemGray2">#ff636366</Color>
+    <Color x:Key="invisible">#00000000</Color>
 </ResourceDictionary>

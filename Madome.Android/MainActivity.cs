@@ -8,15 +8,8 @@ using Android.Widget;
 using Android.OS;
 
 using Xamarin.Forms;
-using Plugin.CurrentActivity;
 
 namespace Madome.Droid {
-
-#if DEBUG
-	[Application(Debuggable = true)]
-#else
-	[Application(Debuggable = false)]
-#endif
 	[Activity(Label = "Madome", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
@@ -27,7 +20,6 @@ namespace Madome.Droid {
             ToolbarResource = Resource.Layout.Toolbar;
 			base.OnCreate(savedInstanceState);
 
-			CrossCurrentActivity.Current.Init(this, savedInstanceState);
 			Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 			Madome.Resources.Screen.Width = (int)Resources.DisplayMetrics.WidthPixels;

@@ -39,7 +39,7 @@
 <JavaMaximumHeapSize>4G</JavaMaximumHeapSize>
 <LangVersion>latest</LangVersion>
 <AndroidUseAapt2>true</AndroidUseAapt2>
-<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+<AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType></DebugType>
@@ -96,9 +96,6 @@
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
       <Version>2.4.11.982</Version>
-    </PackageReference>
-    <PackageReference Include="Plugin.CurrentActivity">
-      <Version>2.1.0.4</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
