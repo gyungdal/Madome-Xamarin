@@ -1,23 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prepare="clr-namespace:Madome.ViewModels.Prepare"
-             xmlns:customControl="clr-namespace:Madome.Custom.Control"
+             x:DataType="prepare:InputEmailViewModel"
              BackgroundColor="{StaticResource tertiarySystemBackground}"
-             x:DataType="prepare:SetHostViewModel"
-             x:Class="Madome.Views.Prepare.SetHostPage"
-             Title="서버 설정">
+             xmlns:customControl="clr-namespace:Madome.Custom.Control"
+             x:Class="Madome.Views.Prepare.InputEmailPage"
+             Title="이메일 입력">
     <FlexLayout
         Direction="Column"
         AlignItems="Stretch"
         JustifyContent="SpaceEvenly" >
         <StackLayout >
             <customControl:HideLineEntry
-                Text="{Binding Url, Mode=OneWayToSource}" HorizontalTextAlignment="Center"
+                Text="{Binding Email, Mode=OneWayToSource}" HorizontalTextAlignment="Center"
                 Keyboard="Url" HasBorder="False" IsTabStop="False" PlaceholderColor="{StaticResource placeholderText}"
                 FontSize="Large" IsSpellCheckEnabled="False" TextColor="{StaticResource label}"
                 IsTextPredictionEnabled="False" BackgroundColor="{StaticResource tertiarySystemBackground}"
-                FlexLayout.AlignSelf="Start" Placeholder="Madome 호환 서버 주소를 입력해주세요."/>
+                FlexLayout.AlignSelf="Start" Placeholder="이메일 주소를 입력해주세요."/>
             <Button Text="확인" FontSize="Default" FlexLayout.AlignSelf="Start"
                     Clicked="button_click" TextColor="{StaticResource systemYellow}"/>
         </StackLayout>
