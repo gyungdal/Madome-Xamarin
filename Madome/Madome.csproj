@@ -35,6 +35,7 @@
     <Folder Include="Views\Prepare\" />
     <Folder Include="ViewModels\Prepare\" />
     <Folder Include="Custom\Control\" />
+    <Folder Include="Resources\Theme\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Resources\AppTheme.cs" />

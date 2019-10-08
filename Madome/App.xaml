@@ -5,7 +5,4 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:Theme="clr-namespace:Madome.Resources" mc:Ignorable="d"
              x:Class="Madome.App">
-    <Application.Resources x:DataType="Theme:AppTheme">
-        <Theme:AppTheme />
-    </Application.Resources>
 </Application>

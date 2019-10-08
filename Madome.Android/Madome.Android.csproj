@@ -104,7 +104,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Custom\Auth\AccountManager.cs" />
     <Compile Include="Helpers\NetworkStatusManager.cs" />
-    <Compile Include="Custom\Control\HideLineEntryRenderer.cs" />
+    <Compile Include="Custom\Renderer\PageRenderer.cs" />
+    <Compile Include="Custom\Renderer\HideLineEntryRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -138,7 +139,7 @@
     <Folder Include="Custom\" />
     <Folder Include="Custom\Auth\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Custom\Control\" />
+    <Folder Include="Custom\Renderer\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Madome\Madome.csproj">
