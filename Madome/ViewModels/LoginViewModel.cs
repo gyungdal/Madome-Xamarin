@@ -3,7 +3,7 @@ using Madome.Helpers;
 
 namespace Madome.ViewModels
 {
-    public class LoginViewModel : ObservableObject
+    public class LoginViewModel : BaseViewModel
     {
         public LoginViewModel() 
         {
