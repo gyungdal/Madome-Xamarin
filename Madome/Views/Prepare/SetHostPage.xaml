@@ -4,7 +4,7 @@
              xmlns:prepare="clr-namespace:Madome.ViewModels.Prepare"
              xmlns:customControl="clr-namespace:Madome.Custom.Control"
              x:DataType="prepare:SetHostViewModel"
-             BackgroundColor="{StaticResource systemFill}"
+             BackgroundColor="{StaticResource tertiarySystemBackground}"
              x:Class="Madome.Views.Prepare.SetHostPage"
              Title="서버 설정">
     <ContentPage.BindingContext>
@@ -19,7 +19,7 @@
                 Text="{Binding Url, Mode=OneWayToSource}" HorizontalTextAlignment="Center"
                 Keyboard="Url" HasBorder="False" IsTabStop="False" PlaceholderColor="{StaticResource placeholderText}"
                 FontSize="Large" IsSpellCheckEnabled="False" TextColor="{StaticResource label}"
-                IsTextPredictionEnabled="False" BackgroundColor="{StaticResource systemFill}"
+                IsTextPredictionEnabled="False" BackgroundColor="{StaticResource tertiarySystemBackground}"
                 FlexLayout.AlignSelf="Start" Placeholder="Madome 호환 서버 주소를 입력해주세요."/>
             <Button Text="확인" FontSize="Default" FlexLayout.AlignSelf="Start"
                     Clicked="button_click" TextColor="{StaticResource systemYellow}"/>

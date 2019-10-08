@@ -9,8 +9,8 @@ using Xamarin.Forms.Xaml;
 
 namespace Madome.Custom.Theme {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Theme : ResourceDictionary {
-		public Theme() {
+	public partial class DarkTheme : ResourceDictionary {
+		public DarkTheme() {
 			InitializeComponent();
 		}
 	}

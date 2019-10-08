@@ -6,6 +6,6 @@
              xmlns:theme="clr-namespace:Madome.Custom.Theme" mc:Ignorable="d"
              x:Class="Madome.App">
     <Application.Resources>
-        <theme:Theme />
+        <theme:DarkTheme />
     </Application.Resources>
 </Application>
