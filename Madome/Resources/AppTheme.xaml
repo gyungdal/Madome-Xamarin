@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Madome.Resources.AppTheme">
+
+    <!--Primary Color Set-->
+    <!--
+		Primary Colors are based on the color "Primary1".
+		The number which goes after Primary, such as Primary'2', means its brightness.
+		Primary1 is the brightest, and Primary5 is the darkest.
+
+		To view the color, visit this link
+		https://color.adobe.com/color-theme-9186315
+	-->
+    <Color x:Key="Primary1">#72D6FF</Color>
+    <Color x:Key="Primary2">#68C3E8</Color>
+    <Color x:Key="Primary3">#5DAECF</Color>
+    <Color x:Key="Primary4">#4B8DA8</Color>
+    <Color x:Key="Primary5">#427C94</Color>
+
+
+    <!--White/Black Color Set-->
+    <!--
+		White & Black Colors designed for the readability.
+
+		Use these colors at those usage :
+		- Plain text color
+		- Input field (and previewing texts)
+		- Disabled button, switch, and etc...
+
+		To view the color, visit this link
+		https://color.adobe.com/color-theme-9186318
+	-->
+    <Color x:Key="White">#FFFFFF</Color>
+    <Color x:Key="LightGray">#E6E6E6</Color>
+    <Color x:Key="Gray">#BFBFBF</Color>
+    <Color x:Key="DarkGray">#7F7F7F</Color>
+    <Color x:Key="Black">#363636</Color>
+
+</ResourceDictionary>

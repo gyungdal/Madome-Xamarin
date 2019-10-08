@@ -1,7 +1,7 @@
 ﻿using System;
 using Madome.Helpers;
 
-namespace Madome.Views
+namespace Madome.ViewModels
 {
     public class LoginViewModel : ObservableObject
     {

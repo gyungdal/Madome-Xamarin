@@ -31,5 +31,10 @@
     <Folder Include="Helpers\" />
     <Folder Include="Custom\" />
     <Folder Include="Custom\Auth\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Resources\AppTheme.cs" />
+    <Compile Remove="Custom\Auth\AccountManager.cs" />
   </ItemGroup>
 </Project>
