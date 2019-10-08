@@ -1,85 +1,64 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Accounts;
 using Madome.Custom.Auth;
+using Xamarin.Essentials;
 using Xamarin.Auth;
+using Newtonsoft.Json.Linq;
 
-//TODO : https://github.com/xamarin/Xamarin.Auth/wiki/Migrating-from-AccountStore-to-Xamarin.Essentials-SecureStorage
 [assembly: Xamarin.Forms.Dependency(typeof(Madome.Custom.Auth.iOS.AccountManager))]
-namespace Madome.Custom.Auth.iOS
-{
-	[Obsolete]
-	public class AccountManager : IAccountManager
-	{
-		public string Id {
-			get {
-				//TODO : iOS 에서 앱 이름 받아오는 코드 필요, 현재는 디렉토리 구해오는 코드로 대체됨
-				var account = AccountStore.Create().FindAccountsForService(App.Current.ClassId).FirstOrDefault();
-				return (account != null) ? account.Username : null;
-			}
+namespace Madome.Custom.Auth.iOS{
+	public class AccountManager : IAccountManager {
+		private readonly string AppName;
+
+		AccountManager() {
+			AppName = AppInfo.Name;
 		}
 
-		public string Phone {
-			get {
-				var account = AccountStore.Create().FindAccountsForService(App.Current.ClassId).FirstOrDefault();
-				return (account != null) ? account.Properties["Phone"] : null;
+		public string Email() {
+			JObject account = JObject.Parse(SecureStorage.GetAsync(AppName).Result);
+			if (!String.IsNullOrEmpty(account.GetValue("email").ToString())) {
+				return account.GetValue("email").ToString();
 			}
-		}
-
-		public string Affiliation {
-			get {
-				var account = AccountStore.Create().FindAccountsForService(App.Current.ClassId).FirstOrDefault();
-				return (account != null) ? account.Properties["Affiliation"] : null;
-			}
-		}
-
-		public string Position {
-			get {
-				var account = AccountStore.Create().FindAccountsForService(App.Current.ClassId).FirstOrDefault();
-				return (account != null) ? account.Properties["Position"] : null;
-			}
-		}
-
-		public bool LoginExists {
-			get {
-				if (AccountStore.Create().FindAccountsForService(App.Current.ClassId).Any())
-					return true;
-				else
-					return false;
-			}
-		}
-		public string Name => throw new NotImplementedException();
-
-		public string Email => throw new NotImplementedException();
-
-		public DateTime CreatedAt => throw new NotImplementedException();
-
-		public void Delete()
-		{
-			var account = AccountStore.Create().FindAccountsForService(App.Current.ClassId).FirstOrDefault();
-			if (account != null) {
-				AccountStore.Create().Delete(account, App.Current.ClassId);
-			}
+			return String.Empty;
 		}
 
 
-		public void Save(string id, string phone, string affiliation, string position)
-		{
-			if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(phone)
-				&& string.IsNullOrWhiteSpace(affiliation) && string.IsNullOrWhiteSpace(position)) {
-				Account account = new Account {
-					Username = id
-				};
-				account.Properties.Add("Phone", phone);
-				account.Properties.Add("Affiliation", affiliation);
-				account.Properties.Add("Position", position);
-				AccountStore.Create().SaveAsync(account, App.Current.ClassId);
+		public string Token() {
+			JObject account = JObject.Parse(SecureStorage.GetAsync(AppName).Result);
+			if (!String.IsNullOrEmpty(account.GetValue("token").ToString())) {
+				return account.GetValue("token").ToString();
 			}
+			return String.Empty;
 		}
 
-		public void Save(string name, string id, string email, DateTime createdAt) {
-			throw new NotImplementedException();
+		public string Url() {
+			JObject account = JObject.Parse(SecureStorage.GetAsync(AppName).Result);
+			if (!String.IsNullOrEmpty(account.GetValue("url").ToString())) {
+				return account.GetValue("url").ToString();
+			}
+			return String.Empty;
+		}
+
+		public void Save(string url, string email, string token) {
+			JObject account = new JObject();
+			account.Add("email", email);
+			account.Add("url", url);
+			account.Add("token", token);
+			SecureStorage.SetAsync(AppName, account.ToString());
+		}
+
+		public bool HasToken() {
+			return !String.IsNullOrEmpty(Token());
+		}
+
+		public void DeleteToken() {
+			Save(Url(), String.Empty, String.Empty);
+		}
+
+		public void Delete() {
+			SecureStorage.RemoveAll();
 		}
 	}
-	
 }
