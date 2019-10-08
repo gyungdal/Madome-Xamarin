@@ -175,5 +175,6 @@
     <Folder Include="Custom\Auth\" />
     <Folder Include="Helpers\" />
     <Folder Include="Custom\Control\" />
+    <Folder Include="Resources\Theme\" />
   </ItemGroup>
 </Project>
