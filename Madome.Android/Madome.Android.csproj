@@ -37,12 +37,9 @@
 <AndroidDexTool>d8</AndroidDexTool>
 <AndroidLinkTool>r8</AndroidLinkTool>
 <JavaMaximumHeapSize>4G</JavaMaximumHeapSize>
-<AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
 <LangVersion>latest</LangVersion>
-<AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
-<AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
-<AndroidUseAapt2>false</AndroidUseAapt2>
-<AndroidEnableMultiDex>false</AndroidEnableMultiDex>
+<AndroidUseAapt2>true</AndroidUseAapt2>
+<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType></DebugType>

@@ -1,4 +1,6 @@
 ﻿using System;
+using CoreAnimation;
+using CoreGraphics;
 using Madome.Custom.Control;
 using Madome.Custom.Control.iOS;
 using UIKit;
@@ -18,6 +20,16 @@ namespace Madome.Custom.Control.iOS {
 						Control.BorderStyle = UITextBorderStyle.None;
 					}
 				}
+
+				Control.BorderStyle = UITextBorderStyle.None;
+				CALayer bottomBorder = new CALayer {
+					Frame = new CGRect(0.0f, Element.HeightRequest - 1, this.Frame.Width, 1.0f),
+					BorderWidth = 2.0f,
+					BorderColor = Color.White.ToCGColor()
+				};
+
+				Control.Layer.AddSublayer(bottomBorder);
+				Control.Layer.MasksToBounds = true;
 			}
 		}
 	}

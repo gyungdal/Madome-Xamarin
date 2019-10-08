@@ -10,7 +10,10 @@ namespace Madome.Views.Prepare {
 	public partial class SetHostPage : ContentPage {
 		public SetHostPage() {
 			InitializeComponent();
-			BindingContext = new SetHostViewModel();
+		}
+
+		private void button_click(object sender, EventArgs args) {
+			
 		}
 	}
 }

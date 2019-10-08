@@ -11,7 +11,7 @@ namespace Madome
         {
             InitializeComponent();
 
-            MainPage = new Views.Prepare.SetHostPage();
+            MainPage = new NavigationPage(new Views.Prepare.SetHostPage());
         }
 
         protected override void OnStart()

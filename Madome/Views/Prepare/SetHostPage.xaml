@@ -5,16 +5,24 @@
              xmlns:customControl="clr-namespace:Madome.Custom.Control"
              x:DataType="prepare:SetHostViewModel"
              x:Class="Madome.Views.Prepare.SetHostPage"
-             BackgroundColor="{StaticResource DarkBackground}">
+             BackgroundColor="{StaticResource White}"
+             Title="서버 설정">
+    <ContentPage.BindingContext>
+        <prepare:SetHostViewModel />
+    </ContentPage.BindingContext>
     <FlexLayout
         Direction="Column"
         AlignItems="Stretch"
         JustifyContent="SpaceEvenly" >
         <StackLayout >
-                    FontSize="Large" TextColor="{StaticResource White}"
-                    BackgroundColor="{StaticResource Transparent}"
-                    FlexLayout.AlignSelf="Start" Placeholder="서버 주소"/>
-            <Button Text="확인" FontSize="Large" FlexLayout.AlignSelf="Start"/>
+            <customControl:HideLineEntry
+                Text="{Binding Url, Mode=OneWayToSource}" HorizontalTextAlignment="Center"
+                Keyboard="Chat" HasBorder="False" IsTabStop="False"
+                FontSize="Large" TextColor="{StaticResource Black}" IsSpellCheckEnabled="False" 
+                BackgroundColor="{StaticResource Transparent}" IsTextPredictionEnabled="False" 
+                FlexLayout.AlignSelf="Start" Placeholder="서버 주소"/>
+            <Button Text="확인" FontSize="Large" BackgroundColor="{StaticResource Transparent}"
+                    FlexLayout.AlignSelf="Start" Clicked="button_click"/>
         </StackLayout>
     </FlexLayout>
 </ContentPage>
