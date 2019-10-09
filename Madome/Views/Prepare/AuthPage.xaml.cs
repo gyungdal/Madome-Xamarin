@@ -9,16 +9,17 @@ namespace Madome.Views.Prepare {
 	public partial class AuthPage : ContentPage {
 		private AuthViewModel viewModel;
 		public AuthPage(InputEmailViewModel olderViewmodel) {
-			viewModel = new AuthViewModel();
-			viewModel.Email = olderViewmodel.Email;
-			viewModel.Url = olderViewmodel.Url;
+			viewModel = new AuthViewModel {
+				Email = olderViewmodel.Email,
+				Url = olderViewmodel.Url
+			};
 			BindingContext = viewModel;
 			InitializeComponent();
 		}
 
 		private void button_click(object sender, EventArgs args) {
 			DisplayAlert(viewModel.Url, "Email : " + viewModel.Email + "\nOTP : " + viewModel.OTP, "Cancel");
-			Navigation.PopToRootAsync();
+			Application.Current.MainPage = new Test();
 		}
 	}
 }

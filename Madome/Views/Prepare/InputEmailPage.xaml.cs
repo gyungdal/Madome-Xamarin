@@ -10,8 +10,9 @@ namespace Madome.Views.Prepare {
 	public partial class InputEmailPage : ContentPage {
 		private InputEmailViewModel viewModel;
 		public InputEmailPage(string url) {
-			viewModel = new InputEmailViewModel();
-			viewModel.Url = url;
+			viewModel = new InputEmailViewModel {
+				Url = url
+			};	
 			BindingContext = viewModel;
 			InitializeComponent();
 		}
