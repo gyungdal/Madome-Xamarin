@@ -21,8 +21,9 @@
                         <ColumnDefinition Width="3*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <ffimageloading:CachedImage Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" 
-                        x:Name="Image" HorizontalOptions="Center" Source="{Binding .}"
-                        VerticalOptions="Center" DownsampleToViewSize="true"
+                        HorizontalOptions="Center" Source="{Binding .}"
+                        VerticalOptions="Center" DownsampleToViewSize="true" CacheType="All"
+                        FadeAnimationForCachedImages="True" CacheDuration="15"
                         Aspect="AspectFill" HeightRequest="150" WidthRequest="150" />
                     <Label Grid.Row="0" Grid.Column="1" Text="TEST" LineBreakMode="TailTruncation" />
                     <Label Grid.Row="1" Grid.Column="1" Text="test" Font="Small"  TextColor="Gray" LineBreakMode="TailTruncation"/>

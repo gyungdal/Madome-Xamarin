@@ -11,7 +11,7 @@ namespace Madome
         public App()
         {
             InitializeComponent();
-			MainPage = new NavigationPage(new Views.Prepare.SetHostPage());
+			MainPage = new Madome.Views.Home.MainPage();
         }
 
         protected override void OnStart(){
