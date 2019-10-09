@@ -19,7 +19,7 @@ namespace Madome.Droid {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 			base.OnCreate(savedInstanceState);
-
+			FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
 			Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 			Madome.Resources.Screen.Width = (int)Resources.DisplayMetrics.WidthPixels;

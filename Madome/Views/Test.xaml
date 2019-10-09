@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Madome.Views.Test">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" x:Class="Madome.Views.Test">
   <ListView x:Name="MyListView"
             HasUnevenRows="True"
-            ItemsSource="{Binding Items}"
+            ItemsSource="{Binding Items, Mode=OneWay}"
             ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement">
            
@@ -12,17 +11,19 @@
     <ListView.ItemTemplate>
         <DataTemplate>
             <ViewCell>
-                <Grid>
+                <Grid HeightRequest="175">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"></RowDefinition>
                         <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
                         <ColumnDefinition Width="3*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-
-                    <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Source="{Binding .}" Aspect="AspectFit"/>
+                    <ffimageloading:CachedImage Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" 
+                        x:Name="Image" HorizontalOptions="Center" Source="{Binding .}"
+                        VerticalOptions="Center" DownsampleToViewSize="true"
+                        Aspect="AspectFill" HeightRequest="150" WidthRequest="150" />
                     <Label Grid.Row="0" Grid.Column="1" Text="TEST" LineBreakMode="TailTruncation" />
                     <Label Grid.Row="1" Grid.Column="1" Text="test" Font="Small"  TextColor="Gray" LineBreakMode="TailTruncation"/>
                     
