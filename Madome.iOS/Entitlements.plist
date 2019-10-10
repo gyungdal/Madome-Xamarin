@@ -4,9 +4,15 @@
 <dict>
 	<key>aps-environment</key>
 	<string>development</string>
+	<key>com.apple.developer.networking.multipath</key>
+	<true/>
 	<key>com.apple.developer.default-data-protection</key>
 	<string>NSFileProtectionComplete</string>
-	<key>com.apple.developer.networking.multipath</key>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)app.Madome</string>
+	</array>
+	<key>com.apple.developer.networking.wifi-info</key>
 	<true/>
 </dict>
 </plist>
