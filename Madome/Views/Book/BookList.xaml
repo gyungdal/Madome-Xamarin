@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             x:Class="Madome.Views.Book.MainDetail"
+             x:Class="Madome.Views.Book.BookList"
              Title="리스트">
     <ListView x:Name="MyListView"
             HasUnevenRows="True"

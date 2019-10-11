@@ -44,7 +44,7 @@ namespace Madome.Views.Prepare {
 					IAccountManager accountManager = DependencyService.Get<IAccountManager>();
 					JObject token = JObject.Parse(response.Content.ReadAsStringAsync().Result);
 					accountManager.Save(url: viewModel.Url, email: viewModel.Email, token: token.GetValue("token").ToString());
-					Application.Current.MainPage = new Test();
+					Application.Current.MainPage = new Main();
 					break;
 				}
 				default: {

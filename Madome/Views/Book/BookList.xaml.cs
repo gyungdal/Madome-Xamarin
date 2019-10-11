@@ -10,10 +10,10 @@ using Xamarin.Forms.Xaml;
 
 namespace Madome.Views.Book {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MainDetail : ContentPage {
+	public partial class BookList : ContentPage {
 		public ObservableCollection<string> Items { get; set; }
 
-		public MainDetail() {
+		public BookList() {
 			InitializeComponent();
 			Items = new ObservableCollection<string>{
 				"https://media.tenor.com/images/8f711b12e00bc1816694bf51909f8b8f/tenor.gif",
@@ -35,6 +35,7 @@ namespace Madome.Views.Book {
 
 			MyListView.ItemsSource = Items;
 		}
+
 		async void Handle_ItemTapped(object sender, ItemTappedEventArgs e) {
 			if (e.Item == null)
 				return;
