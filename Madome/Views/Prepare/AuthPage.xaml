@@ -14,7 +14,7 @@
             <customControl:HideLineEntry
                 x:Name="InputEntry"
                 Text="{Binding OTP, Mode=OneWayToSource}" HorizontalTextAlignment="Center"
-                Keyboard="Url" HasBorder="False" IsTabStop="False" PlaceholderColor="{StaticResource placeholderText}"
+                Keyboard="Plain" HasBorder="False" IsTabStop="False" PlaceholderColor="{StaticResource placeholderText}"
                 FontSize="Medium" IsSpellCheckEnabled="False" TextColor="{StaticResource label}"
                 IsTextPredictionEnabled="False" BackgroundColor="{StaticResource tertiarySystemBackground}"
                 FlexLayout.AlignSelf="Start" Placeholder="인증 번호를 입력해주세요."/>

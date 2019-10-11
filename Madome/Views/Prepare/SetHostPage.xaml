@@ -15,7 +15,7 @@
             <customControl:HideLineEntry
                 x:Name="InputEntry"
                 Text="{Binding Url, Mode=OneWayToSource}" HorizontalTextAlignment="Center"
-                Keyboard="Text" HasBorder="False" IsTabStop="False" PlaceholderColor="{StaticResource placeholderText}"
+                Keyboard="Url" HasBorder="False" IsTabStop="False" PlaceholderColor="{StaticResource placeholderText}"
                 FontSize="Medium" IsSpellCheckEnabled="False" TextColor="{StaticResource label}"
                 IsTextPredictionEnabled="False" BackgroundColor="{StaticResource tertiarySystemBackground}"
                 FlexLayout.AlignSelf="Start" Placeholder="Madome 호환 서버 주소를 입력해주세요."/>
