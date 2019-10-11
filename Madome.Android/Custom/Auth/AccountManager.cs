@@ -14,7 +14,7 @@ namespace Madome.Custom.Auth.Droid {
 		private readonly SecureAccountStore Store;
 		private readonly string AppName;
 
-		AccountManager() {
+		public AccountManager() {
 			Store = SecureAccountStore.Instance;
 			AppName = AppInfo.Name;
 		}

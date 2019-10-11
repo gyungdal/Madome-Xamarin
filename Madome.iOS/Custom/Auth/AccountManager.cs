@@ -6,21 +6,26 @@ using Madome.Custom.Auth;
 using Xamarin.Essentials;
 using Xamarin.Auth;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Madome.Custom.Auth.iOS.AccountManager))]
 namespace Madome.Custom.Auth.iOS{
 	public class AccountManager : IAccountManager {
 		private readonly string AppName;
 
-		AccountManager() {
+		public AccountManager() {
 			AppName = AppInfo.Name;
+			Debug.Print(AppName);
 		}
 
 		public string Email {
 			get {
-				JObject account = JObject.Parse(SecureStorage.GetAsync(AppName).Result);
-				if (!String.IsNullOrEmpty(account.GetValue("email").ToString())) {
-					return account.GetValue("email").ToString();
+				string value = SecureStorage.GetAsync(AppName).Result;
+				if (!String.IsNullOrEmpty(value)) {
+					JObject account = JObject.Parse(value);
+					if (!String.IsNullOrEmpty(account.GetValue("email").ToString())) {
+						return account.GetValue("email").ToString();
+					}
 				}
 				return String.Empty;
 			}
@@ -28,9 +33,12 @@ namespace Madome.Custom.Auth.iOS{
 
 		public string Token {
 			get {
-				JObject account = JObject.Parse(SecureStorage.GetAsync(AppName).Result);
-				if (!String.IsNullOrEmpty(account.GetValue("token").ToString())) {
-					return account.GetValue("token").ToString();
+				string value = SecureStorage.GetAsync(AppName).Result;
+				if (!String.IsNullOrEmpty(value)) {
+					JObject account = JObject.Parse(value);
+					if (!String.IsNullOrEmpty(account.GetValue("token").ToString())) {
+						return account.GetValue("token").ToString();
+					}
 				}
 				return String.Empty;
 			}
@@ -38,9 +46,12 @@ namespace Madome.Custom.Auth.iOS{
 
 		public string Url {
 			get {
-				JObject account = JObject.Parse(SecureStorage.GetAsync(AppName).Result);
-				if (!String.IsNullOrEmpty(account.GetValue("url").ToString())) {
-					return account.GetValue("url").ToString();
+				string value = SecureStorage.GetAsync(AppName).Result;
+				if (!String.IsNullOrEmpty(value)) {
+					JObject account = JObject.Parse(value);
+					if (!String.IsNullOrEmpty(account.GetValue("url").ToString())) {
+						return account.GetValue("url").ToString();
+					}
 				}
 				return String.Empty;
 			}
