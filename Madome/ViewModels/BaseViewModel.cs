@@ -13,18 +13,14 @@ namespace Madome.ViewModels {
 
         public App AppCurrent
 			=> (App)Xamarin.Forms.Application.Current;
-            
 
-		public string GetUrl
-			=> Account.Url;
+		public string Url
+			=> Account.Get(Enum.Auth.AccountTokenType.URL);
 
-		public string GetEmail
-			=> Account.Email;
+		public string Email
+			=> Account.Get(Enum.Auth.AccountTokenType.EMAIL);
 
-		public string GetToken
-			=> Account.Token;
-
-		public bool HasToken
-			=> Account.HasToken;
+		public string Token
+			=> Account.Get(Enum.Auth.AccountTokenType.TOKEN);
     }
 }

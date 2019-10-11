@@ -7,78 +7,50 @@ using Xamarin.Essentials;
 using System.Linq;
 using Madome.Helpers;
 using System.Threading.Tasks;
+using Madome.Enum.Auth;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Madome.Custom.Auth.Droid.AccountManager))]
 namespace Madome.Custom.Auth.Droid {
 	public class AccountManager : IAccountManager {
-		private readonly SecureAccountStore Store;
+		private readonly SecureAccountStore AccountStore;
 		private readonly string AppName;
 
 		public AccountManager() {
-			Store = SecureAccountStore.Instance;
+			AccountStore = SecureAccountStore.Instance;
 			AppName = AppInfo.Name;
 		}
 
-		public string Email {
-			get {
-				Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
-				if(account != null) {
-					return account.Username;
-				}
+		public string Get(AccountTokenType type) {
+			try {
+				Account account = AccountStore.FindAccountsForServiceAsync(AppName).Result.First();
+				return account.Properties[type.ToString()];
+			} catch (Exception) {
+				//값이 없으면 빈값 반환
 				return String.Empty;
 			}
-		}
-
-
-		public string Token {
-			get {
-				Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
-				if (account != null) {
-					return account.Properties["token"];
-				}
-				return String.Empty;
-			}
-		}
-
-		public string Url {
-			get {
-				Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
-				if (account != null) {
-					return account.Properties["url"];
-				}
-				return String.Empty;
-			}
-		}
-
-		public void Save(string url, string email, string token) {
-			Delete();
-			Account account = new Account(email);
-			account.Properties["token"] = token;
-			account.Properties["url"] = url;
-			Store.SaveAsync(account, AppName).Wait();
 		}
 
 		public bool HasToken {
 			get {
-				Account account = Store.FindAccountsForServiceAsync(AppName).Result.First();
-				if (account != null) {
-					return !String.IsNullOrEmpty(account.Properties["token"]);
-				}
-				return false;
+				return !String.IsNullOrEmpty(Get(AccountTokenType.TOKEN));
 			}
-		}
-
-		public void DeleteToken() {
-			Save(Url, String.Empty, String.Empty);
 		}
 
 		public void Delete() {
-			List<Account> accounts = Store.FindAccountsForServiceAsync(AppName).Result;
-			foreach (Account account in accounts) {
-				if (account != null) {
-					Store.RemoveAsync(account, AppName).Wait();
-				}
-			}
+			//Account 데이터 삭제
+			AccountStore.FindAccountsForServiceAsync(AppName).Result.ForEach(
+				(Xamarin.Auth.Account obj) => AccountStore.RemoveAsync(obj, AppName).Wait());
+		}
+
+
+		public void Save(string url, string email, string token) {
+			AccountStore.FindAccountsForServiceAsync(AppName).Result.ForEach(
+				(Xamarin.Auth.Account obj) => AccountStore.RemoveAsync(obj, AppName).Wait());
+			Account account = new Account("WhoAmI");
+			account.Properties[AccountTokenType.EMAIL.ToString()] = email;
+			account.Properties[AccountTokenType.TOKEN.ToString()] = token;
+			account.Properties[AccountTokenType.URL.ToString()] = url;
+			AccountStore.SaveAsync(account, AppName).Wait();
 		}
 	}
 }

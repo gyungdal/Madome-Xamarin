@@ -42,7 +42,7 @@ namespace Madome.Views.Prepare {
 			switch (response.StatusCode) {
 				case HttpStatusCode.OK: {
 					IAccountManager accountManager = DependencyService.Get<IAccountManager>();
-					JObject token = JObject.Parse(response.Content.ToString());
+					JObject token = JObject.Parse(response.Content.ReadAsStringAsync().Result);
 					accountManager.Save(url: viewModel.Url, email: viewModel.Email, token: token.GetValue("token").ToString());
 					Application.Current.MainPage = new Test();
 					break;

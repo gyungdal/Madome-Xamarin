@@ -7,6 +7,7 @@ using Xamarin.Essentials;
 using Xamarin.Auth;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using Madome.Enum.Auth;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Madome.Custom.Auth.iOS.AccountManager))]
 namespace Madome.Custom.Auth.iOS{
@@ -18,64 +19,30 @@ namespace Madome.Custom.Auth.iOS{
 			Debug.Print(AppName);
 		}
 
-		public string Email {
-			get {
-				string value = SecureStorage.GetAsync(AppName).Result;
-				if (!String.IsNullOrEmpty(value)) {
-					JObject account = JObject.Parse(value);
-					if (!String.IsNullOrEmpty(account.GetValue("email").ToString())) {
-						return account.GetValue("email").ToString();
-					}
-				}
-				return String.Empty;
-			}
-		}
-
-		public string Token {
-			get {
-				string value = SecureStorage.GetAsync(AppName).Result;
-				if (!String.IsNullOrEmpty(value)) {
-					JObject account = JObject.Parse(value);
-					if (!String.IsNullOrEmpty(account.GetValue("token").ToString())) {
-						return account.GetValue("token").ToString();
-					}
-				}
-				return String.Empty;
-			}
-		}
-
-		public string Url {
-			get {
-				string value = SecureStorage.GetAsync(AppName).Result;
-				if (!String.IsNullOrEmpty(value)) {
-					JObject account = JObject.Parse(value);
-					if (!String.IsNullOrEmpty(account.GetValue("url").ToString())) {
-						return account.GetValue("url").ToString();
-					}
-				}
-				return String.Empty;
-			}
-		}
-
 		public bool HasToken {
-			get => !String.IsNullOrEmpty(Token);
-		}
-
-
-		public void Save(string url, string email, string token) {
-			JObject account = new JObject();
-			account.Add("email", email);
-			account.Add("url", url);
-			account.Add("token", token);
-			SecureStorage.SetAsync(AppName, account.ToString());
-		}
-
-		public void DeleteToken() {
-			Save(Url, String.Empty, String.Empty);
+			get => !String.IsNullOrEmpty(Get(AccountTokenType.TOKEN));
 		}
 
 		public void Delete() {
 			SecureStorage.RemoveAll();
+		}
+
+		public string Get(AccountTokenType type) {
+			try {
+				string value = SecureStorage.GetAsync(AppName).Result;
+				JObject account = JObject.Parse(value);
+				return account.GetValue(type.ToString()).ToString();
+			} catch (Exception) {
+				return String.Empty;
+			}
+		}
+
+		public void Save(string url, string email, string token) {
+			JObject account = new JObject();
+			account.Add(AccountTokenType.EMAIL.ToString(), email);
+			account.Add(AccountTokenType.URL.ToString(), url);
+			account.Add(AccountTokenType.TOKEN.ToString(), token);
+			SecureStorage.SetAsync(AppName, account.ToString());
 		}
 	}
 }

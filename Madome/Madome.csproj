@@ -36,6 +36,8 @@
     <Folder Include="Custom\Control\" />
     <Folder Include="Custom\Theme\" />
     <Folder Include="Views\Home\" />
+    <Folder Include="Enum\" />
+    <Folder Include="Enum\Auth\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Resources\AppTheme.cs" />
