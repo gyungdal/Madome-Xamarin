@@ -22,6 +22,18 @@ namespace Madome.Custom.Auth.iOS{
 		public bool HasToken {
 			get => !String.IsNullOrEmpty(Get(AccountTokenType.TOKEN));
 		}
+		public string UpdateToken {
+			set {
+				string str = SecureStorage.GetAsync(AppName).Result;
+				if (!String.IsNullOrEmpty(str)) {
+					Delete();
+					JObject json = JObject.Parse(str);
+					json[AccountTokenType.TOKEN.ToString()] = value;
+					SecureStorage.SetAsync(AppName, json.ToString());
+				}
+
+			}
+		}
 
 		public void Delete() {
 			SecureStorage.RemoveAll();
@@ -38,6 +50,7 @@ namespace Madome.Custom.Auth.iOS{
 		}
 
 		public void Save(string url, string email, string token) {
+			Delete();
 			JObject account = new JObject();
 			account.Add(AccountTokenType.EMAIL.ToString(), email);
 			account.Add(AccountTokenType.URL.ToString(), url);

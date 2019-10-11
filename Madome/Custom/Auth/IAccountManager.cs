@@ -20,6 +20,11 @@ namespace Madome.Custom.Auth
 		bool HasToken { get; }
 
 		/// <summary>
+		/// 토큰 업데이트
+		/// </summary>
+		string UpdateToken { set; }
+
+		/// <summary>
 		/// 서버에서 발급된 토큰과 이메일, URL등 추후 앱 구동에 필요한 데이터들을 저장
 		/// 이때, 기존 데이터와 충돌을 막기 위해서,기존 데이터는 삭제
 		/// </summary>

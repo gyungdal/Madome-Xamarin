@@ -36,6 +36,17 @@ namespace Madome.Custom.Auth.Droid {
 			}
 		}
 
+		public string UpdateToken {
+			set {
+				Account account = AccountStore.FindAccountsForServiceAsync(AppName).Result.First();
+				if(account != null) {
+					AccountStore.RemoveAsync(account, AppName).Wait();
+					account.Properties[AccountTokenType.TOKEN.ToString()] = value;
+					AccountStore.SaveAsync(account, AppName).Wait();
+				}
+			}
+		}
+
 		public void Delete() {
 			//Account 데이터 삭제
 			AccountStore.FindAccountsForServiceAsync(AppName).Result.ForEach(
