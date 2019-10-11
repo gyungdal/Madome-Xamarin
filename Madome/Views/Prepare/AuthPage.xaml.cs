@@ -22,25 +22,27 @@ namespace Madome.Views.Prepare {
 		}
 
 		private void button_click(object sender, EventArgs args) {
-			DisplayAlert(viewModel.Url, "Email : " + viewModel.Email + "\nOTP : " + viewModel.OTP, "Cancel");
-
-			System.Net.ServicePointManager.SecurityProtocol =
-				SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-
-			using (var client = new HttpClient()) {
-				Uri uri = new Uri("https://" + viewModel.Url.Trim() + "/v2/auth/token");
-				client.DefaultRequestHeaders.Accept.Clear();
-				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-				JObject json = new JObject();
-				json.Add("type", "auth_code");
-				json.Add("code", viewModel.OTP.Trim());
-				StringContent content = new StringContent(json.ToString(), encoding: System.Text.Encoding.UTF8, "application/json");
-
-				HttpResponseMessage message = client.PostAsync(uri, content).Result;
-				DisplayAlert(message.StatusCode.ToString(), message.Content.ToString(), "취소");
+			if (!viewModel.Url.Contains("https://")) {
+				viewModel.Url = "https://" + viewModel.Url;
 			}
-			Application.Current.MainPage = new Test();
+			HttpClient client = new HttpClient();
+			Uri uri = new Uri(viewModel.Url + "/v2/auth/token");
+			JObject json = new JObject();
+			json.Add("type", "auth_code");
+			json.Add("code", viewModel.OTP);
+			StringContent content = new StringContent(content: json.ToString(),
+										encoding: System.Text.Encoding.UTF8, mediaType: "application/json");
+			HttpResponseMessage response =  client.PostAsync(uri, content).Result;
+			switch (response.StatusCode) {
+				case HttpStatusCode.OK: {
+					Application.Current.MainPage = new Test();
+					break;
+				}
+				default: {
+					DisplayAlert(response.StatusCode.ToString(), "인증 에러 발생", "확인");
+					break;
+				}
+			}
 		}
 	}
 }

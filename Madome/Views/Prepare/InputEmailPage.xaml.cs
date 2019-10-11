@@ -21,6 +21,16 @@ namespace Madome.Views.Prepare {
 			InitializeComponent();
 		}
 		private void button_click(object sender, EventArgs args) {
+			if (!viewModel.Url.Contains("https://")) {
+				viewModel.Url = "https://" + viewModel.Url;
+			}
+			HttpClient client = new HttpClient();
+			Uri uri = new Uri(viewModel.Url + "/v1/auth/send-mail");
+			JObject json = new JObject();
+			json.Add("email", viewModel.Email);
+			StringContent content = new StringContent(content: json.ToString(),
+										encoding: System.Text.Encoding.UTF8, mediaType: "application/json");
+			client.PostAsync(uri, content);
 			Navigation.PushAsync(new AuthPage(viewModel));
 		}
 	}
