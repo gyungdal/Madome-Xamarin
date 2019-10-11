@@ -16,7 +16,7 @@ namespace Madome
             InitializeComponent();
 			IAccountManager Account = DependencyService.Get<IAccountManager>();
 			if (Account.HasToken) {
-				MainPage = new Madome.Views.Home.MainPage();
+				MainPage = new Madome.Views.Main();
 			} else {
 				MainPage = new NavigationPage(new Madome.Views.Prepare.SetHostPage());
 			}

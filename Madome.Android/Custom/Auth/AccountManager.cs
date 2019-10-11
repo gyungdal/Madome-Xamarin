@@ -31,9 +31,7 @@ namespace Madome.Custom.Auth.Droid {
 		}
 
 		public bool HasToken {
-			get {
-				return !String.IsNullOrEmpty(Get(AccountTokenType.TOKEN));
-			}
+			get => !String.IsNullOrEmpty(Get(AccountTokenType.TOKEN));
 		}
 
 		public string UpdateToken {

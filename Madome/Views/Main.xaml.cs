@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Madome.Views.Book;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Madome.Views.Home {
+namespace Madome.Views {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MainPage : MasterDetailPage {
-		public MainPage() {
+	public partial class Main : MasterDetailPage {
+		public Main() {
 			InitializeComponent();
 			MasterPage.ListView.ItemSelected += ListView_ItemSelected;
 		}
 
 		private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e) {
-			var item = e.SelectedItem as MainPageMenuItem;
+			var item = e.SelectedItem as MainMenuItem;
 			if (item == null)
 				return;
 

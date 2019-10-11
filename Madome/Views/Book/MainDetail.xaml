@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="Madome.Views.Book.MainDetail"
+             Title="리스트">
+    <ListView x:Name="MyListView"
+            HasUnevenRows="True"
+            ItemsSource="{Binding Items, Mode=OneWay}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement">
+           
+    <!--Built in Cells-->
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <ViewCell>
+                <Grid HeightRequest="175">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ffimageloading:CachedImage Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" 
+                        HorizontalOptions="Center" Source="{Binding .}"
+                        VerticalOptions="Center" DownsampleToViewSize="true" CacheType="All"
+                        FadeAnimationForCachedImages="True" CacheDuration="15"
+                        Aspect="AspectFill" HeightRequest="150" WidthRequest="150" />
+                    <Label Grid.Row="0" Grid.Column="1" Text="TEST" LineBreakMode="TailTruncation" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="test" Font="Small"  TextColor="Gray" LineBreakMode="TailTruncation"/>
+                    
+                </Grid>
+            </ViewCell>
+        </DataTemplate>
+    </ListView.ItemTemplate>
+    
+    <!--Custom View Cells-->
+    <!--
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout>
+            <Label Text="{Binding Text}" 
+                   Style="{DynamicResource ListItemTextStyle}" />
+            <Label Text="{Binding Detail}" 
+                   Style="{DynamicResource ListItemDetailTextStyle}"/>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    -->
+  </ListView>
+</ContentPage>

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Madome.Views.Home {
-	public class MainPageMenuItem {
-		public MainPageMenuItem() {
-			TargetType = typeof(MainPageDetail);
+namespace Madome.Views.Book {
+	public class MainMenuItem {
+		public MainMenuItem() {
+			TargetType = typeof(MainDetail);
 		}
 		public int Id { get; set; }
 		public string Title { get; set; }
