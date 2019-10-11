@@ -21,6 +21,11 @@ namespace Madome.Views.Prepare {
 			InitializeComponent();
 		}
 
+		protected override void OnAppearing() {
+			base.OnAppearing();
+			InputEntry.Focus();
+		}
+
 		private void button_click(object sender, EventArgs args) {
 			if (!viewModel.Url.Contains("https://")) {
 				viewModel.Url = "https://" + viewModel.Url;

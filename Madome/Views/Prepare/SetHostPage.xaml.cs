@@ -17,6 +17,11 @@ namespace Madome.Views.Prepare {
 			BindingContext = viewModel;
 		}
 
+		protected override void OnAppearing() {
+			base.OnAppearing();
+			InputEntry.Focus();
+		}
+
 		private void button_click(object sender, EventArgs args) {
 			Navigation.PushAsync(new InputEmailPage(viewModel.Url));
 		}

@@ -12,6 +12,7 @@
         JustifyContent="SpaceEvenly" >
         <StackLayout >
             <customControl:HideLineEntry
+                x:Name="InputEntry"
                 Text="{Binding OTP, Mode=OneWayToSource}" HorizontalTextAlignment="Center"
                 Keyboard="Url" HasBorder="False" IsTabStop="False" PlaceholderColor="{StaticResource placeholderText}"
                 FontSize="Medium" IsSpellCheckEnabled="False" TextColor="{StaticResource label}"

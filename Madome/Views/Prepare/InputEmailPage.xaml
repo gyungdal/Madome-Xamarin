@@ -13,8 +13,9 @@
         JustifyContent="SpaceEvenly" >
         <StackLayout >
             <customControl:HideLineEntry
+                x:Name="InputEntry"
                 Text="{Binding Email, Mode=OneWayToSource}" HorizontalTextAlignment="Center"
-                Keyboard="Url" HasBorder="False" IsTabStop="False" PlaceholderColor="{StaticResource placeholderText}"
+                Keyboard="Email" HasBorder="False" IsTabStop="False" PlaceholderColor="{StaticResource placeholderText}"
                 FontSize="Medium" IsSpellCheckEnabled="False" TextColor="{StaticResource label}"
                 IsTextPredictionEnabled="False" BackgroundColor="{StaticResource tertiarySystemBackground}"
                 FlexLayout.AlignSelf="Start" Placeholder="이메일 주소를 입력해주세요."/>
