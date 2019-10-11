@@ -14,12 +14,12 @@ namespace Madome
         public App()
         {
             InitializeComponent();
-			/*IAccountManager Account = DependencyService.Get<IAccountManager>();
+			IAccountManager Account = DependencyService.Get<IAccountManager>();
 			if (Account.HasToken) {
 				MainPage = new Madome.Views.Home.MainPage();
 			} else {
-			}*/
-			MainPage = new NavigationPage(new Madome.Views.Prepare.SetHostPage());
+				MainPage = new NavigationPage(new Madome.Views.Prepare.SetHostPage());
+			}
         }
 
         protected override void OnStart(){

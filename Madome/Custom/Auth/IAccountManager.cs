@@ -5,6 +5,7 @@ namespace Madome.Custom.Auth
 {
     public interface IAccountManager
     {
+
 		/// <summary>
 		/// 저장된 서버의 URL을 반환
 		/// </summary>

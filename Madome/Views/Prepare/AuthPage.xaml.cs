@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using Madome.Custom.Auth;
 using Madome.ViewModels.Prepare;
 using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
@@ -40,6 +41,9 @@ namespace Madome.Views.Prepare {
 			HttpResponseMessage response =  client.PostAsync(uri, content).Result;
 			switch (response.StatusCode) {
 				case HttpStatusCode.OK: {
+					IAccountManager accountManager = DependencyService.Get<IAccountManager>();
+					JObject token = JObject.Parse(response.Content.ToString());
+					accountManager.Save(url: viewModel.Url, email: viewModel.Email, token: token.GetValue("token").ToString());
 					Application.Current.MainPage = new Test();
 					break;
 				}
