@@ -170,5 +170,6 @@
     <Folder Include="Custom\Auth\" />
     <Folder Include="Helpers\" />
     <Folder Include="Custom\Renderer\" />
+    <Folder Include="Assets.xcassets\hamburger.imageset\" />
   </ItemGroup>
 </Project>

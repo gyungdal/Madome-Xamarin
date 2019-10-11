@@ -4,7 +4,7 @@
                   x:Class="Madome.Views.Main"
                   xmlns:pages="clr-namespace:Madome.Views.Book">
     <MasterDetailPage.Master>
-        <pages:MainMaster x:Name="MasterPage" />
+        <pages:MainMaster x:Name="MasterPage"/>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
         <NavigationPage>
