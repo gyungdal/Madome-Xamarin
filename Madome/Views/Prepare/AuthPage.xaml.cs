@@ -33,12 +33,14 @@ namespace Madome.Views.Prepare {
 			}
 			HttpClient client = new HttpClient();
 			Uri uri = new Uri(viewModel.Url + "/v2/auth/token");
-			JObject json = new JObject();
-			json.Add("type", "auth_code");
-			json.Add("code", viewModel.OTP);
+			JObject json = new JObject {
+				{ "type", "auth_code" },
+				{ "code", viewModel.OTP }
+			};
 			StringContent content = new StringContent(content: json.ToString(),
 										encoding: System.Text.Encoding.UTF8, mediaType: "application/json");
 			HttpResponseMessage response =  client.PostAsync(uri, content).Result;
+			client.Dispose();
 			switch (response.StatusCode) {
 				case HttpStatusCode.OK: {
 					IAccountManager accountManager = DependencyService.Get<IAccountManager>();

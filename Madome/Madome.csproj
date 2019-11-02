@@ -38,11 +38,14 @@
     <Folder Include="Views\Book\" />
     <Folder Include="Enum\" />
     <Folder Include="Enum\Auth\" />
+    <Folder Include="Views\Developer\" />
+    <Folder Include="ViewModels\Developer\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Resources\AppTheme.cs" />
     <Compile Remove="Custom\Auth\AccountManager.cs" />
     <Compile Remove="Views\Prepare\XamlCompalationAttribute.cs" />
+    <Compile Remove="Views\Developer\DocsOTP.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="Resources\Theme\MyViewCell.xaml" />
