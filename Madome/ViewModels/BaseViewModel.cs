@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Reflection;
 using Madome.Custom.Auth;
 using Madome.Helpers;
 using Xamarin.Forms;

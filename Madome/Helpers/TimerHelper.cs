@@ -9,14 +9,12 @@ namespace Madome.Helpers {
 
         private static CancellationTokenSource _cancellationTokenSource;
 
-        public TimerHelper(TimeSpan timeSpan, Action callback)
-        {
+        public TimerHelper(TimeSpan timeSpan, Action callback){
             _timeSpan = timeSpan;
             _callback = callback;
             _cancellationTokenSource = new CancellationTokenSource();
         }
-        public void Start()
-        {
+        public void Start(){
             CancellationTokenSource cts = _cancellationTokenSource; // safe copy
             Device.StartTimer(_timeSpan, () =>
             {
@@ -29,8 +27,7 @@ namespace Madome.Helpers {
             });
         }
 
-        public void Stop()
-        {
+        public void Stop(){
             Interlocked.Exchange(ref _cancellationTokenSource, new CancellationTokenSource()).Cancel();
         }
     }
