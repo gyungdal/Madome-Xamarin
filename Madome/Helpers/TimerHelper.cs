@@ -27,7 +27,7 @@ namespace Madome.Helpers {
             });
         }
 
-        public void Stop(){
+		public void Stop(){
             Interlocked.Exchange(ref _cancellationTokenSource, new CancellationTokenSource()).Cancel();
         }
     }

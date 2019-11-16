@@ -24,5 +24,6 @@ namespace Madome.ViewModels {
 
 		public string Token
 			=> Account.Get(Enum.Auth.AccountTokenType.TOKEN);
+
     }
 }

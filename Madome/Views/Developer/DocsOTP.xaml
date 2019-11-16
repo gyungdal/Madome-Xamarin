@@ -4,5 +4,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Madome.Views.Developer.DocsOTP">
     <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="Test" FontSize="Body" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

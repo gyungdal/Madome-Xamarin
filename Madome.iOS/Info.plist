@@ -23,8 +23,6 @@
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
 	<string>Madome</string>
-	<key>CFBundleIdentifier</key>
-	<string>app.Madome</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
@@ -35,15 +33,15 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>UIMainStoryboardFile</key>
 	<string>LaunchScreen</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.0.1</string>
+	<key>CFBundleIdentifier</key>
+	<string>co.cenox.Madome</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
 		<string>remote-notification</string>
 		<string>processing</string>
-	</array>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>gamekit</string>
 	</array>
 </dict>
 </plist>

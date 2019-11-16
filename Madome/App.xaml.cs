@@ -20,7 +20,7 @@ namespace Madome
 			} else {
 				MainPage = new NavigationPage(new Madome.Views.Prepare.SetHostPage());
 			}
-        }
+		}
 
         protected override void OnStart(){
 			

@@ -15,6 +15,7 @@ namespace Madome.ViewModels.Developer {
 					CountDown = 60;
 				}
 			});
+			Timer.Start();
 		}
 
 		public void Stop() {
