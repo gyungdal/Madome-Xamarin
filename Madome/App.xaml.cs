@@ -2,6 +2,7 @@
 using System.Net.Http;
 using Madome.Custom.Auth;
 using Madome.Custom.Theme;
+using Madome.Helpers;
 using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,6 +15,7 @@ namespace Madome
         public App()
         {
             InitializeComponent();
+			APIHelper.Instance.UrlRefresh();
 			IAccountManager Account = DependencyService.Get<IAccountManager>();
 			if (Account.HasToken) {
 				MainPage = new Madome.Views.Main();

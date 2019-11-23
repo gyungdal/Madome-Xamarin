@@ -62,6 +62,7 @@ namespace Madome.Helpers {
 			}
 			
 			string body = response.Content.ReadAsStringAsync().Result;
+			Debug.WriteLine(body);
 			HttpResponse result = new HttpResponse {
 				Code = response.StatusCode,
 				Body = new JObject()
@@ -69,7 +70,7 @@ namespace Madome.Helpers {
 
 			if (!string.IsNullOrEmpty(body)) {
 				if (result.Code == System.Net.HttpStatusCode.OK) {
-					result.Body = new JObject(body);
+					result.Body = JObject.Parse(body);
 				} else {
 					result.Body.Add("message", body);
 				}
