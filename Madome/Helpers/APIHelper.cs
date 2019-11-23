@@ -60,14 +60,19 @@ namespace Madome.Helpers {
 						break;
 					}
 			}
+			
 			string body = response.Content.ReadAsStringAsync().Result;
 			HttpResponse result = new HttpResponse {
-				Code = response.StatusCode
+				Code = response.StatusCode,
+				Body = new JObject()
 			};
-			if (string.IsNullOrEmpty(body)) {
-				result.Body = new JObject();
-			} else {
-				result.Body = new JObject(body);
+
+			if (!string.IsNullOrEmpty(body)) {
+				if (result.Code == System.Net.HttpStatusCode.OK) {
+					result.Body = new JObject(body);
+				} else {
+					result.Body.Add("message", body);
+				}
 			}
 			client.Dispose();
 			return result;

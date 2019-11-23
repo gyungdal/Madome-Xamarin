@@ -35,7 +35,7 @@ namespace Madome.ViewModels.Prepare {
 						break;
 					}
 				default: {
-						Application.Current.MainPage.DisplayAlert(result.Code.ToString(), "인증 에러 발생", "확인");
+						Application.Current.MainPage.DisplayAlert(result.Code.ToString(), result.Body["message"].ToString(), "확인");
 						break;
 					}
 			}
