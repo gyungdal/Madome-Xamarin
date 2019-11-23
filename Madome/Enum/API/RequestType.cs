@@ -7,7 +7,7 @@ namespace Madome.Enum.API {
 		[Description("/v1/auth/send-mail")]
 		AUTH,
 		[Description("/v2/auth/token")]
-		REQUEST_OTP
+		TOKEN_GENERATOR
 	}
 
 	static class RequestTypeExtensions {

@@ -41,6 +41,7 @@
     <Folder Include="Views\Developer\" />
     <Folder Include="ViewModels\Developer\" />
     <Folder Include="Enum\API\" />
+    <Folder Include="Struct\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Resources\AppTheme.cs" />

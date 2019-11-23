@@ -16,13 +16,11 @@ namespace Madome.ViewModels.Prepare {
 				if (!Url.Contains("https://")) {
 					Url = "https://" + Url;
 				}
-				HttpClient client = new HttpClient();
-				Uri uri = new Uri(Url + "/v1/auth/send-mail");
-				JObject json = new JObject();
-				json.Add("email", Email);
-				StringContent content = new StringContent(content: json.ToString(),
-											encoding: System.Text.Encoding.UTF8, mediaType: "application/json");
-				client.PostAsync(uri, content);
+				JObject json = new JObject {
+					{ "email", Email }
+				};
+				APIHelper.Instance.UrlRefresh(Url);
+				APIHelper.Instance.Post(Enum.API.RequestType.AUTH, json);
 				Application.Current.MainPage.Navigation.PushAsync(new AuthPage(this));
 			});
 		}
