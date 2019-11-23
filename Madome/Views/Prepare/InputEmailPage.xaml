@@ -16,7 +16,7 @@
                 x:Name="InputEntry"
                 Text="{Binding Email, Mode=OneWayToSource}" HorizontalTextAlignment="Center"
                 Keyboard="Email" HasBorder="False" IsTabStop="False" PlaceholderColor="{StaticResource placeholderText}"
-                FontSize="Medium" IsSpellCheckEnabled="False" TextColor="{StaticResource label}"
+                FontSize="Medium" IsSpellCheckEnabled="False" TextColor="{StaticResource label}" ReturnCommand="{Binding ButtonCommand}"
                 IsTextPredictionEnabled="False" BackgroundColor="{StaticResource tertiarySystemBackground}"
                 FlexLayout.AlignSelf="Start" Placeholder="이메일 주소를 입력해주세요."/>
             <Button Text="확인" FontSize="Default" FlexLayout.AlignSelf="Start" BackgroundColor="{StaticResource invisible}"
