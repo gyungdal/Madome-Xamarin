@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Net.Http;
 using System.Text;
 using Madome.Custom.Auth;
@@ -37,6 +39,7 @@ namespace Madome.Helpers {
 		}
 
 		private HttpResponse Request(Enum.API.HttpMethod method, Uri uri, StringContent content) {
+			Debug.WriteLine(uri.ToString());
 			HttpClient client = new HttpClient();
 			HttpResponseMessage response = new HttpResponseMessage();
 			switch (method) {
@@ -57,13 +60,14 @@ namespace Madome.Helpers {
 						break;
 					}
 			}
+			string body = response.Content.ReadAsStringAsync().Result;
 			HttpResponse result = new HttpResponse {
 				Code = response.StatusCode
 			};
-			if (!string.IsNullOrEmpty(response.Content.ToString())) {
-				result.Body = new JObject(response.Content.ToString());
-			} else {
+			if (string.IsNullOrEmpty(body)) {
 				result.Body = new JObject();
+			} else {
+				result.Body = new JObject(body);
 			}
 			client.Dispose();
 			return result;
