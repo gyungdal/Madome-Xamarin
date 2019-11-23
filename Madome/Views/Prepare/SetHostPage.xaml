@@ -20,7 +20,7 @@
                 IsTextPredictionEnabled="False" BackgroundColor="{StaticResource tertiarySystemBackground}"
                 FlexLayout.AlignSelf="Start" Placeholder="Madome 호환 서버 주소를 입력해주세요."/>
             <Button Text="확인" FontSize="Default" FlexLayout.AlignSelf="Start" BackgroundColor="{StaticResource invisible}"
-                    Clicked="button_click" TextColor="{StaticResource systemYellow}"/>
+                    Command="{Binding ButtonCommand}" TextColor="{StaticResource systemYellow}"/>
         </StackLayout>
     </FlexLayout>
 </ContentPage>

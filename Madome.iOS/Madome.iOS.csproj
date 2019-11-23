@@ -27,9 +27,9 @@
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <MtouchFastDev>true</MtouchFastDev>
-    <CodesignKey>Apple Development: admin@gyungdal.cc (M9MR58F46G)</CodesignKey>
-    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignKey>Apple Development: keunbyeol Hwang (4CNQR424QM)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -40,6 +40,8 @@
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <MtouchUseLlvm>true</MtouchUseLlvm>
+    <CodesignProvision>Madome Xamarin Profile</CodesignProvision>
+    <CodesignKey>Apple Development: Byeong-Su Kang (HE7YGT9BNG)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,11 +52,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
-    <CodesignKey>Apple Development: Byeong-Su Kang (HE7YGT9BNG)</CodesignKey>
+    <CodesignKey>Apple Development: keunbyeol Hwang (4CNQR424QM)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchFastDev>true</MtouchFastDev>
-<RunCodeAnalysis>true</RunCodeAnalysis>  <CodesignProvision>Madome Xamarin Profile</CodesignProvision>
+<RunCodeAnalysis>true</RunCodeAnalysis>  <MtouchHttpClientHandler>CFNetworkHandler</MtouchHttpClientHandler>
 </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -63,13 +65,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
-    <CodesignKey>Apple Distribution: Byeong-Su Kang (UP6EXS2HJJ)</CodesignKey>
+    <CodesignKey>Apple Development: Byeong-Su Kang (HE7YGT9BNG)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchUseLlvm>true</MtouchUseLlvm>
 <RunCodeAnalysis>true</RunCodeAnalysis><DeviceSpecificBuild>true</DeviceSpecificBuild>
 <MtouchFastDev>true</MtouchFastDev>
 <BuildIpa>true</BuildIpa>
 <IpaIncludeArtwork>true</IpaIncludeArtwork>
+<CodesignProvision>Madome Xamarin Profile</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />

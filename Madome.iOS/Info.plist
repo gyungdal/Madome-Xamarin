@@ -19,8 +19,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>MinimumOSVersion</key>
-	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
 	<string>Madome</string>
 	<key>CFBundleVersion</key>
@@ -36,12 +34,14 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.0.1</string>
 	<key>CFBundleIdentifier</key>
-	<string>co.cenox.Madome</string>
+	<string>app.madome</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
 		<string>remote-notification</string>
 		<string>processing</string>
 	</array>
+	<key>MinimumOSVersion</key>
+	<string>8.0</string>
 </dict>
 </plist>

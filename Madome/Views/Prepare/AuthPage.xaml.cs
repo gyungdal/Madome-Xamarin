@@ -26,34 +26,5 @@ namespace Madome.Views.Prepare {
 			base.OnAppearing();
 			InputEntry.Focus();
 		}
-
-		private void button_click(object sender, EventArgs args) {
-			if (!viewModel.Url.Contains("https://")) {
-				viewModel.Url = "https://" + viewModel.Url;
-			}
-			HttpClient client = new HttpClient();
-			Uri uri = new Uri(viewModel.Url + "/v2/auth/token");
-			JObject json = new JObject {
-				{ "type", "auth_code" },
-				{ "code", viewModel.OTP }
-			};
-			StringContent content = new StringContent(content: json.ToString(),
-										encoding: System.Text.Encoding.UTF8, mediaType: "application/json");
-			HttpResponseMessage response =  client.PostAsync(uri, content).Result;
-			client.Dispose();
-			switch (response.StatusCode) {
-				case HttpStatusCode.OK: {
-					IAccountManager accountManager = DependencyService.Get<IAccountManager>();
-					JObject token = JObject.Parse(response.Content.ReadAsStringAsync().Result);
-					accountManager.Save(url: viewModel.Url, email: viewModel.Email, token: token.GetValue("token").ToString());
-					Application.Current.MainPage = new Main();
-					break;
-				}
-				default: {
-					DisplayAlert(response.StatusCode.ToString(), "인증 에러 발생", "확인");
-					break;
-				}
-			}
-		}
 	}
 }
