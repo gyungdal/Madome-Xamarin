@@ -20,7 +20,7 @@ namespace Madome.Helpers {
 		}
 
 		private string Url;
-		public string Token;
+		public string Token { get; set; }
 
 		private APIHelper() {
 			Token = string.Empty;

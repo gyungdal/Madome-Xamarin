@@ -7,7 +7,6 @@ using Xamarin.Forms;
 
 namespace Madome.ViewModels.Developer {
 	public class DocsOTPViewModel : BaseViewModel {
-		private readonly TimerHelper Timer;
 		public long CountDown { get; set; }
 		public string OTP { get; set; }
 		public ICommand RefreshCommand { get; private set; }

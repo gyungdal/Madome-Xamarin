@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Net.Http;
+using FFImageLoading;
+using FFImageLoading.Config;
 using Madome.Custom.Auth;
 using Madome.Custom.Theme;
 using Madome.Helpers;
@@ -19,6 +21,13 @@ namespace Madome
 			IAccountManager Account = DependencyService.Get<IAccountManager>();
 			if (Account.HasToken) {
 				APIHelper.Instance.Token = Account.Get(Enum.Auth.AccountTokenType.TOKEN);
+				ImageService.Instance.Initialize(new Configuration {
+					HttpClient = new HttpClient(
+						new AuthHttpImageClientHandler(
+							() => APIHelper.Instance.Token 
+						)
+					)
+				});
 				MainPage = new Madome.Views.Main();
 			} else {
 				MainPage = new NavigationPage(new Madome.Views.Prepare.SetHostPage());
