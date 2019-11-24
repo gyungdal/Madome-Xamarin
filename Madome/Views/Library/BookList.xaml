@@ -24,7 +24,7 @@
         <ListView.ItemTemplate> 
             <DataTemplate>
                 <ViewCell>
-                    <Grid HeightRequest="175" x:DataType="struct:Book">
+                    <Grid HeightRequest="150" x:DataType="struct:Book">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -48,9 +48,9 @@
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
                             FontFamily="Bold" FontSize="Large" />
                         <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=ArtistsLine, Mode=OneTime}"
-                               Font="Body" TextColor="{StaticResource label}" MaxLines="1"
-                               HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand"
-                               LineBreakMode="WordWrap"/>
+                               LineBreakMode="TailTruncation" TextColor="{StaticResource label}"
+                               HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
+                            FontFamily="Bold" FontSize="Body" />
                         <Label Grid.Row="2" Grid.Column="1" Text="{Binding IdWithType, Mode=OneTime}"
                                Font="Default" TextColor="{StaticResource label}"
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"

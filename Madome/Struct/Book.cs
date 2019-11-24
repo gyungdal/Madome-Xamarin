@@ -78,6 +78,8 @@ namespace Madome.Struct {
 				}
 				OnPropertyChanged("Images");
 				OnPropertyChanged("Thumb");
+				OnPropertyChanged("Artists");
+				OnPropertyChanged("ArtistsLine");
 			});
 		}
 	}

@@ -48,7 +48,6 @@ namespace Madome.ViewModels.Library {
 						Book book = NewBook.ToObject<Book>();
 						book.ImageUpdate();
 						Books.Add(book);
-						Debug.WriteLine(Books.Count.ToString());
 					}
 					break;
 				}
