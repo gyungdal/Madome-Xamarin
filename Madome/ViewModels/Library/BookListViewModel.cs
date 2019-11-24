@@ -11,29 +11,18 @@ namespace Madome.ViewModels.Library {
 	public class BookListViewModel : BaseViewModel {
 		public List<Book> Books { get; private set; }
 		public ICommand LoadNextPageCommnad { get; private set; }
-		public ICommand RefreshCommand { get; private set; }
-		public bool IsRefreshing { get; private set; }
 
 		private int Page;
 		public BookListViewModel() {
 			Page = 0;
 			Books = new List<Book>();
 			LoadNextPageCommnad = new RelayCommand(LoadingNext);
-			RefreshCommand = new RelayCommand(() => {
-				IsRefreshing = true;
-				Page = 0;
-				LoadingNext();
-				IsRefreshing = false;
-			});
-			IsRefreshing = true;
-			LoadingNext();
-			IsRefreshing = false;
 		}
 
 		private void LoadingNext() {
 			Page += 1;
 			JObject jObject = new JObject();
-			jObject.Add("offset", 25);
+			jObject.Add("offset", 1);
 			jObject.Add("page", Page);
 			HttpResponse response = APIHelper.Instance.Get(Enum.API.RequestType.GET_BOOKS, jObject);
 			switch (response.Code) {

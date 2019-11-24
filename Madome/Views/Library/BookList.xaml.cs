@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,12 +12,12 @@ namespace Madome.Views.Library {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BookList : ContentPage {
 		private readonly BookListViewModel viewModel;
-
+		
 		public BookList() {
 			InitializeComponent();
 			viewModel = new BookListViewModel();
 			BindingContext = viewModel;
-
+			viewModel.LoadNextPageCommnad.Execute(null);
 		}
 
 		async void Handle_ItemTapped(object sender, ItemTappedEventArgs e) {
@@ -29,13 +28,6 @@ namespace Madome.Views.Library {
 
 			//Deselect Item
 			((ListView)sender).SelectedItem = null;
-		}
-
-		async void ListView_ItemAppearing(object sender, ItemVisibilityEventArgs e) {
-			var items = viewModel.Books;
-			if (items != null && e.Item == items[items.Count - 1]){
-				viewModel.RefreshCommand.Execute(null);
-			}
 		}
 	}
 }
