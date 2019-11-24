@@ -2,13 +2,63 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:developer="clr-namespace:Madome.ViewModels.Developer"
+    BackgroundColor="{StaticResource tertiarySystemBackground}"
+    x:DataType="developer:DocsOTPViewModel"
     x:Class="Madome.Views.Developer.DocsOTP">
-    <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Label Text="Test" FontSize="Body" />
-        </Grid>
-    </ContentPage.Content>
+    <FlexLayout
+            Direction="Column"
+            AlignItems="Stretch"
+            JustifyContent="SpaceEvenly" >
+            <StackLayout >
+                <Label Text="{Binding CountDown, Mode=OneWay}"
+                       TextColor="{StaticResource label}"
+                       FlexLayout.AlignSelf="Start"
+                       FontSize="Title" />
+                <StackLayout
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center">
+                     <Label Text="{Binding Path=OTP[0], Mode=OneWay}"
+                            FontSize="Title"
+                            FontFamily="Bold"
+                            Margin="10"
+                            TextDecorations="Underline"  
+                            TextColor="{StaticResource label}"/>
+                     <Label Text="{Binding Path=OTP[1], Mode=OneWay}"
+                            FontSize="Title"
+                            FontFamily="Bold"
+                            Margin="10"
+                            TextDecorations="Underline"  
+                            TextColor="{StaticResource label}"/>
+                     <Label Text="{Binding Path=OTP[2], Mode=OneWay}"
+                            FontSize="Title"
+                            FontFamily="Bold"
+                            Margin="10"
+                            TextDecorations="Underline"  
+                            TextColor="{StaticResource label}"/>
+                     <Label Text="{Binding Path=OTP[3], Mode=OneWay}"
+                            FontSize="Title"
+                            FontFamily="Bold"
+                            Margin="10"
+                            TextDecorations="Underline"  
+                            TextColor="{StaticResource label}"/>
+                     <Label Text="{Binding Path=OTP[4], Mode=OneWay}"
+                            FontSize="Title"
+                            FontFamily="Bold"
+                            Margin="10"
+                            TextDecorations="Underline"  
+                            TextColor="{StaticResource label}"/>
+                     <Label Text="{Binding Path=OTP[5], Mode=OneWay}"
+                            FontSize="Title"
+                            FontFamily="Bold"
+                            Margin="10"
+                            TextDecorations="Underline"  
+                            TextColor="{StaticResource label}"/>
+                </StackLayout>
+                <Button Text="↺" FlexLayout.AlignSelf="Start"
+                        FontSize="Title"
+                        BackgroundColor="{StaticResource invisible}"
+                        TextColor="{StaticResource systemYellow}"/>
+            </StackLayout>
+        </FlexLayout>
 </ContentPage>
