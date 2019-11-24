@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:library="clr-namespace:Madome.ViewModels.Library"
-             xmlns:struct="clr-namespace:Madome.Struct" xmlns:control="clr-namespace:Madome.Custom.Control"
+             xmlns:struct="clr-namespace:Madome.Struct"
+             xmlns:control="clr-namespace:Madome.Custom.Control"
+             xmlns:converter="clr-namespace:Madome.Custom.Converter"
              BackgroundColor="{StaticResource tertiarySystemBackground}"
              x:Class="Madome.Views.Library.BookList"
              x:DataType="library:BookListViewModel"
@@ -24,41 +26,43 @@
                 <ViewCell>
                     <Grid HeightRequest="175" x:DataType="struct:Book">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
                         </Grid.ColumnDefinitions>
+
                         <ffimageloading:CachedImage Grid.Row="0" Grid.RowSpan="5" Grid.Column="0"
                             HorizontalOptions="Center" Source="{Binding Path=Thumb}"
                             VerticalOptions="Center" DownsampleToViewSize="true" CacheType="None"
                             Aspect="AspectFill" HeightRequest="150" WidthRequest="150">
                         </ffimageloading:CachedImage>
+
                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Title, Mode=OneTime}"
-                               LineBreakMode="TailTruncation" TextColor="{StaticResource label}"
+                               LineBreakMode="WordWrap" MaxLines="2" TextColor="{StaticResource label}"
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
-                               FontFamily="Bold" FontSize="Title" />
-                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Artists, Mode=OneTime}"
-                               Font="Body" TextColor="{StaticResource label}"
-                               HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand"
-                               LineBreakMode="TailTruncation"/>
-                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Id, Mode=OneTime}"
+                            FontFamily="Bold" FontSize="Large" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=ArtistsLine, Mode=OneTime}"
+                               Font="Body" TextColor="{StaticResource label}" MaxLines="1"
+                               HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand"
+                               LineBreakMode="WordWrap"/>
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding IdWithType, Mode=OneTime}"
                                Font="Default" TextColor="{StaticResource label}"
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
-                               LineBreakMode="TailTruncation"/>
-                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding Path=Series, Mode=OneTime}"
-                               Font="Small" TextColor="{StaticResource label}"
+                               LineBreakMode="WordWrap"/>
+                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding Path=SeriesLine, Mode=OneTime}"
+                               Font="Small" TextColor="{StaticResource label}" MaxLines="2"
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
-                               LineBreakMode="TailTruncation"/>
-                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding Path=Tags, Mode=OneTime}"
-                               Font="Small" TextColor="{StaticResource label}"
+                               LineBreakMode="WordWrap"/>
+                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding Path=TagsLine, Mode=OneTime}"
+                               Font="Small" TextColor="{StaticResource label}" MaxLines="3"
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
-                               LineBreakMode="TailTruncation"/>
+                               LineBreakMode="WordWrap"/>
                     </Grid>
                 </ViewCell>
             </DataTemplate>

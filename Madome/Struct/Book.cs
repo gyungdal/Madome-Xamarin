@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Threading.Tasks;
+using Madome.Custom.Converter;
 using Madome.Enum.API;
 using Madome.Helpers;
 using Newtonsoft.Json;
@@ -10,23 +12,34 @@ namespace Madome.Struct {
 
 		[JsonProperty(PropertyName = "id")]
 		public int Id { get; set; }
+
 		[JsonProperty(PropertyName = "title")]
 		public string Title { get; set; }
 
 		[JsonProperty(PropertyName = "group")]
 		public string[] Group { get; set; }
+		public string GroupLine => string.Join(", ", Group);
 
+		[TypeConverter(typeof(ArrayStringConverter))]
 		[JsonProperty(PropertyName = "characters")]
 		public string[] Characters { get; set; }
+		public string CharactersLine => string.Join(", ", Characters);
 
+
+		[TypeConverter(typeof(ArrayStringConverter))]
 		[JsonProperty(PropertyName = "artists")]
 		public string[] Artists { get; set; }
+		public string ArtistsLine => string.Join(", ", Artists);
 
+		[TypeConverter(typeof(ArrayStringConverter))]
 		[JsonProperty(PropertyName = "series")]
 		public string[] Series { get; set; }
+		public string SeriesLine => string.Join(", ", Series);
 
+		[TypeConverter(typeof(ArrayStringConverter))]
 		[JsonProperty(PropertyName = "tags")]
 		public string[] Tags { get; set; }
+		public string TagsLine => string.Join(", ", Tags);
 
 		[JsonProperty(PropertyName = "type")]
 		public string Type { get; set; }
@@ -39,6 +52,12 @@ namespace Madome.Struct {
 
 		[JsonProperty(PropertyName = "created_at")]
 		public string CreateAt { get; set; }
+
+		public string IdWithType {
+			get {
+				return string.Format("[{0}] {1}", Id, Type);
+			}
+		}
 
 		public string Thumb {
 			get {
