@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using FFImageLoading;
+using FFImageLoading.Config;
+using Madome.Custom.Auth;
+using Madome.Helpers;
 using Madome.ViewModels.Library;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,7 +22,13 @@ namespace Madome.Views.Library {
 			InitializeComponent();
 			viewModel = new BookListViewModel();
 			BindingContext = viewModel;
-			viewModel.LoadNextPageCommnad.Execute(null);
+			ImageService.Instance.Initialize(new Configuration {
+				HttpClient = new HttpClient(
+					new AuthHttpImageClientHandler(
+						() => APIHelper.Instance.Token
+					)
+				)
+			});
 		}
 
 		async void Handle_ItemTapped(object sender, ItemTappedEventArgs e) {

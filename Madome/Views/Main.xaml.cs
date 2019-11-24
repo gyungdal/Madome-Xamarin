@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using FFImageLoading;
+using FFImageLoading.Config;
+using Madome.Custom.Auth;
+using Madome.Helpers;
 using Madome.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

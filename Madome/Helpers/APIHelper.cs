@@ -19,7 +19,7 @@ namespace Madome.Helpers {
 			get => _Instance.Value;
 		}
 
-		private string Url;
+		public string Url;
 		public string Token { get; set; }
 
 		private APIHelper() {
@@ -90,6 +90,11 @@ namespace Madome.Helpers {
 			}
 			client.Dispose();
 			return result;
+		}
+
+		public HttpResponse Get(string url) {
+			Uri uri = new Uri(Url + url);
+			return Request(Enum.API.HttpMethod.GET, uri, null);
 		}
 
 		public HttpResponse Get(RequestType type) {

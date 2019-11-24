@@ -11,7 +11,11 @@ namespace Madome.Enum.API {
 		[Description("/v2/auth/otp")]
 		OTP_GENERATE,
 		[Description("/v1/books")]
-		GET_BOOKS
+		GET_BOOKS,
+		[Description("/v1/book/{0}/image/list")]
+		GET_BOOK_IMAGE_LIST,
+		[Description("/v1/book/{0}/image/{1}")]
+		GET_BOOK_IMAGE
 	}
 
 	static class RequestTypeExtensions {
