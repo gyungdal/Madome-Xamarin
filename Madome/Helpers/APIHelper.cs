@@ -76,8 +76,14 @@ namespace Madome.Helpers {
 			};
 
 			if (!string.IsNullOrEmpty(body)) {
+				body = body.Trim();
 				if (result.Code == System.Net.HttpStatusCode.OK) {
-					result.Body = JObject.Parse(body);
+					if (body[0].Equals('[')) {
+						//Json Array로 들어오는 경우 items에 저장
+						result.Body.Add("items", JArray.Parse(body));
+					} else {
+						result.Body = JObject.Parse(body);
+					}
 				} else {
 					result.Body.Add("message", body);
 				}
