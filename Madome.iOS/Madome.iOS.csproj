@@ -84,6 +84,7 @@
     <Compile Include="Helpers\Reachability.cs" />
     <Compile Include="Custom\Renderer\HideLineEntryRenderer.cs" />
     <Compile Include="Custom\Auth\AccountManager.cs" />
+    <Compile Include="Custom\Renderer\ListViewRefreshRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

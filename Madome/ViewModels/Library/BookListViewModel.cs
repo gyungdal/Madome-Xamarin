@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Madome.Enum.API;
 using Madome.Helpers;
@@ -19,19 +21,18 @@ namespace Madome.ViewModels.Library {
 		public BookListViewModel() {
 			Page = 0;
 			Books = new List<Book>();
-			LoadNextPageCommnad = new RelayCommand(LoadingNext);
-			RefreshCommand = new RelayCommand(() => {
-				IsRefreshing = true;
-				Page = 0;
+			LoadNextPageCommnad = new RelayCommand(async() => {
 				LoadingNext();
+			});
+			RefreshCommand = new RelayCommand(async () => {
+				Page = 0;
+				await LoadingNext();
 				IsRefreshing = false;
 			});
-			IsRefreshing = true;
-			LoadingNext();
-			IsRefreshing = false;
+			RefreshCommand.Execute(null);
 		}
 
-		private void LoadingNext() {
+		public async Task LoadingNext() {
 			Page += 1;
 			JObject jObject = new JObject();
 			jObject.Add("offset", 25);
@@ -93,11 +94,13 @@ namespace Madome.ViewModels.Library {
 								index += 1;
 							}
 							Books.Add(book);
+							Debug.WriteLine(Books.Count.ToString());
+							OnPropertyChanged("Books");
 						}
 						break;
 					}
 				default: {
-					Application.Current.MainPage.DisplayAlert("Error", response.Body["message"].ToString(), "OK");
+					await Application.Current.MainPage.DisplayAlert("Error", response.Body["message"].ToString(), "OK");
 					Page -= 1;
 					break;
 				}

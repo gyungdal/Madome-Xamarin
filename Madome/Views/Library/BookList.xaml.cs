@@ -9,6 +9,7 @@ using FFImageLoading;
 using FFImageLoading.Config;
 using Madome.Custom.Auth;
 using Madome.Helpers;
+using Madome.Struct;
 using Madome.ViewModels.Library;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -34,11 +35,18 @@ namespace Madome.Views.Library {
 		async void Handle_ItemTapped(object sender, ItemTappedEventArgs e) {
 			if (e.Item == null)
 				return;
-
-			await DisplayAlert("Item Tapped", e.Item.ToString(), "OK");
+			Book book = (Book)e.Item;
+			await DisplayAlert("Item Tapped", book.Id.ToString(), "OK");
 
 			//Deselect Item
 			((ListView)sender).SelectedItem = null;
+		}
+
+
+		async void OnItemAppearing(object Sender, ItemVisibilityEventArgs e) {
+			Book item = (Book)e.Item;
+			if (!viewModel.IsRefreshing && item == viewModel.Books.Last())
+				await viewModel.LoadingNext();
 		}
 	}
 }
