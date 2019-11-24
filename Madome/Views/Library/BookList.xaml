@@ -28,18 +28,36 @@
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="3*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <ffimageloading:CachedImage Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+                        <ffimageloading:CachedImage Grid.Row="0" Grid.RowSpan="5" Grid.Column="0"
                             HorizontalOptions="Center" Source="{Binding Path=Thumb}"
                             VerticalOptions="Center" DownsampleToViewSize="true" CacheType="None"
                             Aspect="AspectFill" HeightRequest="150" WidthRequest="150">
                         </ffimageloading:CachedImage>
                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Title, Mode=OneTime}"
-                               LineBreakMode="TailTruncation" TextColor="{StaticResource label}"/>
-                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Type, Mode=OneTime}"
+                               LineBreakMode="TailTruncation" TextColor="{StaticResource label}"
+                               HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
+                               FontFamily="Bold" FontSize="Title" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=Artists, Mode=OneTime}"
+                               Font="Body" TextColor="{StaticResource label}"
+                               HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand"
+                               LineBreakMode="TailTruncation"/>
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding Path=Id, Mode=OneTime}"
+                               Font="Default" TextColor="{StaticResource label}"
+                               HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
+                               LineBreakMode="TailTruncation"/>
+                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding Path=Series, Mode=OneTime}"
                                Font="Small" TextColor="{StaticResource label}"
+                               HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
+                               LineBreakMode="TailTruncation"/>
+                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding Path=Tags, Mode=OneTime}"
+                               Font="Small" TextColor="{StaticResource label}"
+                               HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
                                LineBreakMode="TailTruncation"/>
                     </Grid>
                 </ViewCell>
