@@ -8,7 +8,6 @@ using Android.Widget;
 using Android.OS;
 
 using Xamarin.Forms;
-using PanCardView.Droid;
 
 namespace Madome.Droid {
 	[Activity(Label = "Madome", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
@@ -23,7 +22,6 @@ namespace Madome.Droid {
 			FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
 			Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-			CardsViewRenderer.Preserve();
 			Madome.Resources.Screen.Width = (int)Resources.DisplayMetrics.WidthPixels;
 			Madome.Resources.Screen.Height = (int)Resources.DisplayMetrics.HeightPixels;
 			Madome.Resources.Screen.DPI = (int)Resources.DisplayMetrics.DensityDpi;

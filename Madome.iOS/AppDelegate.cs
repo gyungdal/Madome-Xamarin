@@ -25,7 +25,6 @@ namespace Madome.iOS
             Xamarin.Calabash.Start();
             global::Xamarin.Forms.Forms.Init();
 			FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
-			CardsViewRenderer.Preserve();
 			LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
