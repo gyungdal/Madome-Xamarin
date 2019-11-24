@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
-using PanCardView.iOS;
 using UIKit;
 
 namespace Madome.iOS

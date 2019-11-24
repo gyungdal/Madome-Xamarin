@@ -9,9 +9,9 @@ namespace Madome.Views.Library {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BookReader : ContentPage {
 		private readonly BookReaderViewModel viewModel;
-		public BookReader(Book book) {
+		public BookReader(int id, string[] images) {
 			InitializeComponent();
-			viewModel = new BookReaderViewModel(book);
+			viewModel = new BookReaderViewModel(id, images);
 			BindingContext = viewModel;
 		}
 	}

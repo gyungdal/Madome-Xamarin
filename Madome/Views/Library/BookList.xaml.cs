@@ -48,7 +48,11 @@ namespace Madome.Views.Library {
 			Book book = (Book)e.Item;
 			//Deselect Item
 			((ListView)sender).SelectedItem = null;
-			await Application.Current.MainPage.Navigation.PushAsync(new BookReader(book));
+			if (book.Ready) {
+				await Navigation.PushAsync(new BookReader(book.Id, book.Images));
+			} else {
+				await DisplayAlert("Now Loading...", "로딩중...", "OK");
+			}
 		}
 
 

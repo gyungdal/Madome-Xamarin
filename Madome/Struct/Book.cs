@@ -9,7 +9,9 @@ using Newtonsoft.Json.Linq;
 
 namespace Madome.Struct {
 	public class Book : ObservableObject {
-
+		public Book() {
+			Ready = false;
+		}
 		[JsonProperty(PropertyName = "id")]
 		public int Id { get; set; }
 
@@ -65,8 +67,9 @@ namespace Madome.Struct {
 			}
 		}
 		public string[] Images { get; set; }
-
+		public bool Ready { get; set; }
 		public void ImageUpdate() {
+
 			Task.Run(async () => {
 				HttpResponse imageResponse = APIHelper.Instance.Get(String.Format(RequestType.GET_BOOK_IMAGE_LIST.GetString(), Id));
 				JArray images = (Newtonsoft.Json.Linq.JArray)imageResponse.Body["items"];
@@ -80,6 +83,7 @@ namespace Madome.Struct {
 				OnPropertyChanged("Thumb");
 				OnPropertyChanged("Artists");
 				OnPropertyChanged("ArtistsLine");
+				Ready = true;
 			});
 		}
 	}

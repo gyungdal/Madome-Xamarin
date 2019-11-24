@@ -7,16 +7,26 @@
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              BackgroundColor="Black"
              x:DataType="library:BookReaderViewModel">
-
-    <cv:CarouselView BindingContext="{Binding Images}">
-        <cv:CarouselView.ItemTemplate>
-            <DataTemplate>
-                <ffimageloading:CachedImage 
-                    HorizontalOptions="CenterAndExpand" Source="{Binding .}"
-                    VerticalOptions="CenterAndExpand" DownsampleToViewSize="true" CacheType="None"
-                    Aspect="AspectFill" >
-                </ffimageloading:CachedImage>
-            </DataTemplate>
-        </cv:CarouselView.ItemTemplate>
-    </cv:CarouselView>
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Path=Images, Mode=OneWay}" VerticalOptions="FillAndExpand"
+                  CachingStrategy="RecycleElement" HasUnevenRows="true">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10" BackgroundColor="Black">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <ffimageloading:CachedImage Grid.Row="0" x:DataType="x:String"
+                                MinimumHeightRequest="250" MinimumWidthRequest="250" 
+                                HorizontalOptions="Fill" Source="{Binding .}" 
+                                VerticalOptions="Fill" DownsampleToViewSize="true" CacheType="None"
+                                Aspect="AspectFill" >
+                            </ffimageloading:CachedImage>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
 </ContentPage>
