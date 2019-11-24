@@ -18,6 +18,7 @@ namespace Madome
 			APIHelper.Instance.UrlRefresh();
 			IAccountManager Account = DependencyService.Get<IAccountManager>();
 			if (Account.HasToken) {
+				APIHelper.Instance.Token = Account.Get(Enum.Auth.AccountTokenType.TOKEN);
 				MainPage = new Madome.Views.Main();
 			} else {
 				MainPage = new NavigationPage(new Madome.Views.Prepare.SetHostPage());

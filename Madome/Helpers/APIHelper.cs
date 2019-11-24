@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using Madome.Custom.Auth;
 using Madome.Enum.API;
@@ -19,7 +20,10 @@ namespace Madome.Helpers {
 		}
 
 		private string Url;
+		public string Token;
+
 		private APIHelper() {
+			Token = string.Empty;
 			UrlRefresh();
 		}
 
@@ -41,6 +45,10 @@ namespace Madome.Helpers {
 		private HttpResponse Request(Enum.API.HttpMethod method, Uri uri, StringContent content) {
 			Debug.WriteLine(uri.ToString());
 			HttpClient client = new HttpClient();
+			if (!string.IsNullOrEmpty(Token)) {
+				client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+					"Basic", Token);
+			}
 			HttpResponseMessage response = new HttpResponseMessage();
 			switch (method) {
 				case Enum.API.HttpMethod.POST: {

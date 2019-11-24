@@ -57,6 +57,7 @@
                 </StackLayout>
                 <Button Text="↺" FlexLayout.AlignSelf="Start"
                         FontSize="Title"
+                        Command="{Binding RefreshCommand}"
                         BackgroundColor="{StaticResource invisible}"
                         TextColor="{StaticResource systemYellow}"/>
             </StackLayout>

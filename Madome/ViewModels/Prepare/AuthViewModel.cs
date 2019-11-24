@@ -26,7 +26,7 @@ namespace Madome.ViewModels.Prepare {
 				{ "type", "auth_code" },
 				{ "code", OTP }
 			};
-			HttpResponse result = APIHelper.Instance.Post(RequestType.TOKEN_GENERATOR, json);
+			HttpResponse result = APIHelper.Instance.Post(RequestType.TOKEN_GENERATE, json);
 			switch (result.Code) {
 				case HttpStatusCode.OK: {
 						IAccountManager accountManager = DependencyService.Get<IAccountManager>();
