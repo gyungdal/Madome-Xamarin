@@ -102,6 +102,7 @@
     <Compile Include="Custom\Auth\AccountManager.cs" />
     <Compile Include="Helpers\NetworkStatusManager.cs" />
     <Compile Include="Custom\Renderer\HideLineEntryRenderer.cs" />
+    <Compile Include="Custom\Renderer\UnderLineLabelRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
