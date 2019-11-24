@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Madome.Views.Library.BookReader">
-    
+             x:Class="Madome.Views.Library.BookReader"
+             xmlns:library="clr-namespace:Madome.ViewModels.Library"
+             xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+             x:DataType="library:BookReaderViewModel">
+    <cards:CardsView>
+
+    </cards:CardsView>
 </ContentPage>
