@@ -32,6 +32,16 @@ namespace Madome.Views.Library {
 			});
 		}
 
+		public void OnMore(object sender, EventArgs e) {
+			var mi = ((MenuItem)sender);
+			DisplayAlert("More Context Action", mi.CommandParameter + " more context action", "OK");
+		}
+
+		public void OnDelete(object sender, EventArgs e) {
+			var mi = ((MenuItem)sender);
+			DisplayAlert("Delete Context Action", mi.CommandParameter + " delete context action", "OK");
+		}
+
 		async void Handle_ItemTapped(object sender, ItemTappedEventArgs e) {
 			if (e.Item == null)
 				return;

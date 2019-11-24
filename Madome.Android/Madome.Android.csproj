@@ -104,6 +104,7 @@
     <Compile Include="Helpers\NetworkStatusManager.cs" />
     <Compile Include="Custom\Renderer\HideLineEntryRenderer.cs" />
     <Compile Include="Custom\Renderer\ListViewRefreshRenderer.cs" />
+    <Compile Include="Custom\Renderer\ViewCellSelectedRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

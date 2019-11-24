@@ -85,6 +85,7 @@
     <Compile Include="Custom\Renderer\HideLineEntryRenderer.cs" />
     <Compile Include="Custom\Auth\AccountManager.cs" />
     <Compile Include="Custom\Renderer\ListViewRefreshRenderer.cs" />
+    <Compile Include="Custom\Renderer\ViewCellSelectedRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

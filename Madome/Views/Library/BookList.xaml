@@ -19,11 +19,19 @@
 		    IsPullToRefreshEnabled="True"
             RefreshCommand="{Binding RefreshCommand}"
             IsRefreshing="{Binding IsRefreshing}"
-            ItemAppearing="OnItemAppearing">
-          
+            ItemAppearing="OnItemAppearing"
+            ItemTapped="Handle_ItemTapped">
         <ListView.ItemTemplate> 
             <DataTemplate>
                 <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Clicked="OnMore"
+                                  CommandParameter="{Binding .}"
+                                  Text="More" />
+                        <MenuItem Clicked="OnDelete"
+                                  CommandParameter="{Binding .}"
+                                  Text="Delete" IsDestructive="True" />
+                    </ViewCell.ContextActions>
                     <Grid HeightRequest="150" x:DataType="struct:Book">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
