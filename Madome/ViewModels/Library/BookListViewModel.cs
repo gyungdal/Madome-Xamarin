@@ -13,7 +13,7 @@ using Xamarin.Forms;
 
 namespace Madome.ViewModels.Library {
 	public class BookListViewModel : BaseViewModel {
-		public List<Book> Books { get; private set; }
+		public ObservableCollection<Book> Books { get; private set; }
 		public ICommand LoadNextPageCommnad { get; private set; }
 		public ICommand RefreshCommand { get; private set; }
 		public bool IsRefreshing { get; private set; }
@@ -21,14 +21,15 @@ namespace Madome.ViewModels.Library {
 		private int Page;
 		public BookListViewModel() {
 			Page = 0;
-			Books = new List<Book>();
+			Books = new ObservableCollection<Book>();
 			LoadNextPageCommnad = new RelayCommand(async() => {
+				IsRefreshing = true;
 				await LoadingNext();
+				IsRefreshing = false;
 			});
 			RefreshCommand = new RelayCommand(async () => {
 				Page = 0;
-				await LoadingNext();
-				IsRefreshing = false;
+				LoadNextPageCommnad.Execute(null);
 			});
 			RefreshCommand.Execute(null);
 		}
@@ -57,7 +58,6 @@ namespace Madome.ViewModels.Library {
 					break;
 				}
 			}
-			OnPropertyChanged("Books");
 		}
 	}
 }

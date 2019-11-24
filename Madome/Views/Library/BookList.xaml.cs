@@ -40,13 +40,15 @@ namespace Madome.Views.Library {
 
 			//Deselect Item
 			((ListView)sender).SelectedItem = null;
+			
 		}
 
 
 		async void OnItemAppearing(object Sender, ItemVisibilityEventArgs e) {
 			Book item = (Book)e.Item;
-			if (!viewModel.IsRefreshing && item == viewModel.Books.Last())
+			if (!viewModel.IsRefreshing && item == viewModel.Books.Last()) {
 				await viewModel.LoadingNext();
+			}
 		}
 	}
 }

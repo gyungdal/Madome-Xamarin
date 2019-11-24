@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using CoreGraphics;
 using Madome.Custom.Renderer.iOS;
 using UIKit;
 using Xamarin.Forms;
@@ -8,10 +10,15 @@ using Xamarin.Forms.Platform.iOS;
 namespace Madome.Custom.Renderer.iOS {
 	public class ListViewRefreshRenderer : ListViewRenderer
     {
-        protected override void OnElementChanged(ElementChangedEventArgs<ListView> e) {
-			base.OnElementChanged(e);
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e) {
+			//When refreshing is done, set offset of list to 0,0
+			if (e.PropertyName == ListView.IsRefreshingProperty.PropertyName) {
+				if (!Element.IsRefreshing) {
+				Control.SetContentOffset(new CGPoint(0, 0), false);
+				}
+			}
 
-			((UITableViewController)ViewController).RefreshControl.TintColor = UIColor.Red;
+			base.OnElementPropertyChanged(sender, e);
 		}
 	}
 }
