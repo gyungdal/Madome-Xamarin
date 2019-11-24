@@ -12,6 +12,7 @@
             JustifyContent="SpaceEvenly" >
             <StackLayout >
                 <Label Text="{Binding CountDown, Mode=OneWay}"
+                       HorizontalOptions="Center"
                        TextColor="{StaticResource label}"
                        FlexLayout.AlignSelf="Start"
                        FontSize="Title" />
@@ -55,7 +56,7 @@
                             TextDecorations="Underline"  
                             TextColor="{StaticResource label}"/>
                 </StackLayout>
-                <Button Text="↺" FlexLayout.AlignSelf="Start"
+                <Button Text="↺" FontFamily="Bold"
                         FontSize="Title"
                         Command="{Binding RefreshCommand}"
                         BackgroundColor="{StaticResource invisible}"

@@ -46,8 +46,7 @@ namespace Madome.Helpers {
 			Debug.WriteLine(uri.ToString());
 			HttpClient client = new HttpClient();
 			if (!string.IsNullOrEmpty(Token)) {
-				client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-					"Basic", Token);
+				client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Token);
 			}
 			HttpResponseMessage response = new HttpResponseMessage();
 			switch (method) {
@@ -87,6 +86,10 @@ namespace Madome.Helpers {
 			return result;
 		}
 
+		public HttpResponse Get(RequestType type) {
+			return Get(type, new JObject());
+		}
+
 		public HttpResponse Get(RequestType type, JObject body) {
 			StringBuilder builder = new StringBuilder(Url);
 			builder.Append(type.GetString());
@@ -96,6 +99,9 @@ namespace Madome.Helpers {
 				builder.Append('=');
 				builder.Append(item.Value);
 				builder.Append('&');
+			}
+			if(builder[builder.Length - 1] == '?') {
+				builder.Remove(builder.Length - 1, 1);
 			}
 			Uri uri = new Uri(builder.ToString());
 			return Request(Enum.API.HttpMethod.GET, uri, null);
