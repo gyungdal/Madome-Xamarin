@@ -46,11 +46,9 @@ namespace Madome.Views.Library {
 			if (e.Item == null)
 				return;
 			Book book = (Book)e.Item;
-			await DisplayAlert("Item Tapped", book.Id.ToString(), "OK");
-
 			//Deselect Item
 			((ListView)sender).SelectedItem = null;
-			
+			await Application.Current.MainPage.Navigation.PushAsync(new BookReader(book));
 		}
 
 

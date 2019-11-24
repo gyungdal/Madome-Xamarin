@@ -12,7 +12,6 @@ namespace Madome.UITests
             {
                 return ConfigureApp.Android.StartApp();
             }
-
             return ConfigureApp.iOS.StartApp();
         }
     }

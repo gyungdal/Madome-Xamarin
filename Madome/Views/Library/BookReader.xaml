@@ -3,9 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Madome.Views.Library.BookReader"
              xmlns:library="clr-namespace:Madome.ViewModels.Library"
-             xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="Black"
              x:DataType="library:BookReaderViewModel">
-    <cards:CardsView>
 
-    </cards:CardsView>
+    <cv:CarouselView BindingContext="{Binding Images}">
+        <cv:CarouselView.ItemTemplate>
+            <DataTemplate>
+                <ffimageloading:CachedImage 
+                    HorizontalOptions="CenterAndExpand" Source="{Binding .}"
+                    VerticalOptions="CenterAndExpand" DownsampleToViewSize="true" CacheType="None"
+                    Aspect="AspectFill" >
+                </ffimageloading:CachedImage>
+            </DataTemplate>
+        </cv:CarouselView.ItemTemplate>
+    </cv:CarouselView>
 </ContentPage>
