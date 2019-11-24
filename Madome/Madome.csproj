@@ -35,13 +35,14 @@
     <Folder Include="ViewModels\Prepare\" />
     <Folder Include="Custom\Control\" />
     <Folder Include="Custom\Theme\" />
-    <Folder Include="Views\Book\" />
+    <Folder Include="Views\Library\" />
     <Folder Include="Enum\" />
     <Folder Include="Enum\Auth\" />
     <Folder Include="Views\Developer\" />
     <Folder Include="ViewModels\Developer\" />
     <Folder Include="Enum\API\" />
     <Folder Include="Struct\" />
+    <Folder Include="ViewModels\Library\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Resources\AppTheme.cs" />

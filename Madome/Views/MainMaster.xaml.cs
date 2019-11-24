@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Madome.Models;
 using Madome.ViewModels;
-using Madome.Views.Book;
 using Madome.Views.Developer;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

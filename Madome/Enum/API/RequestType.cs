@@ -9,7 +9,9 @@ namespace Madome.Enum.API {
 		[Description("/v2/auth/token")]
 		TOKEN_GENERATE,
 		[Description("/v2/auth/otp")]
-		OTP_GENERATE
+		OTP_GENERATE,
+		[Description("/v1/books")]
+		GET_BOOKS
 	}
 
 	static class RequestTypeExtensions {

@@ -3,7 +3,7 @@
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   x:Class="Madome.Views.Main"
                   xmlns:pages="clr-namespace:Madome.Views"
-                  xmlns:books="clr-namespace:Madome.Views.Book"
+                  xmlns:books="clr-namespace:Madome.Views.Library"
                     xmlns:viewModel="clr-namespace:Madome.ViewModels"
                   x:DataType="viewModel:MainViewModel">
     <MasterDetailPage.Master>

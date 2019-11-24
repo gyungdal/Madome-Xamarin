@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Madome.Views.Book;
+using Madome.Views.Library;
 
 namespace Madome.Models {
 	public class MenuModel {

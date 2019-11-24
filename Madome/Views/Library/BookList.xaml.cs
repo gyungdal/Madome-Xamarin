@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Madome.Views.Book {
+namespace Madome.Views.Library {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BookList : ContentPage {
 		public ObservableCollection<string> Items { get; set; }

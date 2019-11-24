@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using Madome.Models;
-using Madome.Views.Book;
 using Madome.Views.Developer;
+using Madome.Views.Library;
 
 namespace Madome.ViewModels {
 	class MainMasterViewModel : BaseViewModel {

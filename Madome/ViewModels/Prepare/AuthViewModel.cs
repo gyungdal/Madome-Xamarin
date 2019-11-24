@@ -30,7 +30,9 @@ namespace Madome.ViewModels.Prepare {
 			switch (result.Code) {
 				case HttpStatusCode.OK: {
 						IAccountManager accountManager = DependencyService.Get<IAccountManager>();
-						accountManager.Save(url: Url, email: Email, token: result.Body.GetValue("token").ToString());
+						string token = result.Body.GetValue("token").ToString();
+						accountManager.Save(url: Url, email: Email, token: token);
+						APIHelper.Instance.Token = token;
 						Application.Current.MainPage = new Main();
 						break;
 					}
