@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Madome.Enum.API;
 using Madome.Helpers;
-using Madome.Struct;
+using Madome.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
@@ -16,25 +16,32 @@ namespace Madome.ViewModels.Library {
 		public ObservableCollection<Book> Books { get; private set; }
 		public ICommand LoadNextPageCommnad { get; private set; }
 		public ICommand RefreshCommand { get; private set; }
-		public bool IsRefreshing { get; private set; }
-
+		public bool IsRefreshing { get; set; }
+		private bool AlreadyLoading { get; set; }
 		private int Page;
 		public BookListViewModel() {
 			Page = 0;
+			AlreadyLoading = false;
 			Books = new ObservableCollection<Book>();
-			LoadNextPageCommnad = new RelayCommand(async() => {
-				IsRefreshing = true;
-				await LoadingNext();
-				IsRefreshing = false;
+			LoadNextPageCommnad = new RelayCommand(() => {
+				if (!AlreadyLoading) {
+					AlreadyLoading = true;
+					LoadingNextAsync().Start();
+					AlreadyLoading = false;
+				}
 			});
-			RefreshCommand = new RelayCommand(async () => {
+
+			RefreshCommand = new RelayCommand(() => {
 				Page = 0;
-				LoadNextPageCommnad.Execute(null);
+				LoadingNext();
 			});
-			RefreshCommand.Execute(null);
+
+			LoadNextPageCommnad.Execute(null);
 		}
 
-		public async Task LoadingNext() {
+		public Task LoadingNextAsync() => new Task(()=>LoadingNext());
+		public void LoadingNext() {
+			int LastPage = Page;
 			Page += 1;
 			JObject jObject = new JObject();
 			jObject.Add("offset", 25);
@@ -52,8 +59,8 @@ namespace Madome.ViewModels.Library {
 					break;
 				}
 				default: {
-					await Application.Current.MainPage.DisplayAlert("Error", response.Body["message"].ToString(), "OK");
-					Page -= 1;
+					Application.Current.MainPage.DisplayAlert("Error", response.Body["message"].ToString(), "OK");
+					Page = LastPage;
 					break;
 				}
 			}

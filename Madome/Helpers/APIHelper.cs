@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Madome.Custom.Auth;
 using Madome.Enum.API;
-using Madome.Struct;
+using Madome.Models;
 using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
 

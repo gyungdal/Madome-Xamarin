@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Madome.Struct;
+using Madome.Models;
 using Madome.ViewModels.Library;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

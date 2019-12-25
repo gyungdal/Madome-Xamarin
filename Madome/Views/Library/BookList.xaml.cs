@@ -9,7 +9,7 @@ using FFImageLoading;
 using FFImageLoading.Config;
 using Madome.Custom.Auth;
 using Madome.Helpers;
-using Madome.Struct;
+using Madome.Models;
 using Madome.ViewModels.Library;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -56,10 +56,10 @@ namespace Madome.Views.Library {
 		}
 
 
-		async void OnItemAppearing(object Sender, ItemVisibilityEventArgs e) {
+		void OnItemAppearing(object Sender, ItemVisibilityEventArgs e) {
 			Book item = (Book)e.Item;
 			if (!viewModel.IsRefreshing && item == viewModel.Books.Last()) {
-				await viewModel.LoadingNext();
+				viewModel.LoadingNextAsync().Start();
 			}
 		}
 	}

@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Text;
 using Madome.Enum.API;
 using Madome.Helpers;
-using Madome.Struct;
+using Madome.Models;
 using Xamarin.Forms;
 
 namespace Madome.ViewModels.Library {

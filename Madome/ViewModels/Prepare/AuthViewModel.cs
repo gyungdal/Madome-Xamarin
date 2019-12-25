@@ -8,7 +8,7 @@ using Madome.Views;
 using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
 using Madome.Enum.API;
-using Madome.Struct;
+using Madome.Models;
 
 namespace Madome.ViewModels.Prepare {
 	public class AuthViewModel : ObservableObject {

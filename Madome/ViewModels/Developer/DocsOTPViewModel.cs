@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 using Madome.Helpers;
-using Madome.Struct;
+using Madome.Models;
 using Xamarin.Forms;
 
 namespace Madome.ViewModels.Developer {

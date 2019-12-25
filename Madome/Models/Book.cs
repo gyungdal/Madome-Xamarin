@@ -7,7 +7,7 @@ using Madome.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Madome.Struct {
+namespace Madome.Models {
 	public class Book : ObservableObject {
 		public Book() {
 			Ready = false;
