@@ -46,7 +46,7 @@
                         </Grid.ColumnDefinitions>
 
                         <ffimageloading:CachedImage Grid.Row="0" Grid.RowSpan="5" Grid.Column="0"
-                            HorizontalOptions="Center" Source="{Binding Path=Thumb}"
+                            HorizontalOptions="Center" Source="{Binding Path=Thumb}" 
                             VerticalOptions="Center" DownsampleToViewSize="true" CacheType="None"
                             Aspect="AspectFill" HeightRequest="150" WidthRequest="150">
                         </ffimageloading:CachedImage>

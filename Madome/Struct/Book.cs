@@ -61,15 +61,12 @@ namespace Madome.Struct {
 			}
 		}
 
-		public string Thumb {
-			get {
-				return APIHelper.Instance.Url + String.Format(RequestType.GET_BOOK_IMAGE.GetString(), Id, Images[0]);
-			}
-		}
+		public string Thumb
+			=> APIHelper.Instance.Url + String.Format(RequestType.GET_BOOK_IMAGE.GetString(), Id, Images[0]);
+		
 		public string[] Images { get; set; }
 		public bool Ready { get; set; }
 		public void ImageUpdate() {
-
 			Task.Run(async () => {
 				HttpResponse imageResponse = APIHelper.Instance.Get(String.Format(RequestType.GET_BOOK_IMAGE_LIST.GetString(), Id));
 				JArray images = (Newtonsoft.Json.Linq.JArray)imageResponse.Body["items"];

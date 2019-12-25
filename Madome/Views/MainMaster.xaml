@@ -7,7 +7,7 @@
         <ListView x:Name="MenuItemsListView" SeparatorVisibility="None"
                   HasUnevenRows="true" ItemsSource="{Binding MenuItems}">
             <ListView.Header>
-                <Grid BackgroundColor="{StaticResource systemBlue}">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10" />
                         <ColumnDefinition Width="*" />
@@ -20,7 +20,8 @@
                         <RowDefinition Height="10" />
                     </Grid.RowDefinitions>
                     <Label Grid.Column="1" Grid.Row="2" Text="Madome"
-                           Style="{DynamicResource SubtitleStyle}" />
+                           Style="{DynamicResource SubtitleStyle}"
+                           TextColor="White" FontSize="Large"/>
                 </Grid>
             </ListView.Header>
             <ListView.ItemTemplate>

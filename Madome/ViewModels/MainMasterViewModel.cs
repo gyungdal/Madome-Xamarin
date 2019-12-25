@@ -12,10 +12,7 @@ namespace Madome.ViewModels {
 			MenuItems = new ObservableCollection<MenuModel>(new[]
 			{
 				new MenuModel { Title = "MainView", TargetType = typeof(BookList) },
-				new MenuModel { Title = "OTP", TargetType = typeof(DocsOTP)},
-				new MenuModel { Title = "Page 3" },
-				new MenuModel { Title = "Page 4" },
-				new MenuModel { Title = "Page 5" },
+				new MenuModel { Title = "OTP", TargetType = typeof(DocsOTP)}
 			});
 		}
 	}

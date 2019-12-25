@@ -19,7 +19,11 @@ namespace Madome.ViewModels.Developer {
 			OTP = new string('0', 6);
 			Running = true;
 			Refresh();
-			RefreshCommand = new RelayCommand(Refresh);
+			RefreshCommand = new RelayCommand(() => {
+				if (!AlreadyRequest) {
+					Refresh();
+				}
+			});
 			Device.StartTimer(TimeSpan.FromSeconds(1), () => {
 				if (!AlreadyRequest) {
 					TimeSpan diff = Expires.ToUniversalTime() - DateTime.UtcNow;
@@ -33,7 +37,7 @@ namespace Madome.ViewModels.Developer {
 			});
 		}
 
-		private void Refresh() {
+		private async void Refresh() {
 			AlreadyRequest = true;
 			HttpResponse response = APIHelper.Instance.Get(Enum.API.RequestType.OTP_GENERATE);
 			OTP = response.Body["otp_code"].ToString();
