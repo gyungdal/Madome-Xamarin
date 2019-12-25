@@ -15,6 +15,7 @@
             <customControl:HideLineEntry
                 x:Name="InputEntry"
                 Text="{Binding Url, Mode=OneWayToSource}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                HorizontalOptions="Center" VerticalOptions="Center"
                 Keyboard="Url" HasBorder="False" IsTabStop="False" PlaceholderColor="{StaticResource placeholderText}"
                 FontSize="Medium" IsSpellCheckEnabled="False" TextColor="{StaticResource label}" ReturnCommand="{Binding ButtonCommand}"
                 IsTextPredictionEnabled="False" BackgroundColor="{StaticResource tertiarySystemBackground}"
