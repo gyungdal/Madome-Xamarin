@@ -11,6 +11,7 @@ namespace Madome.ViewModels.Prepare {
 		public string Url { get; set; }
 		public string Email { get; set; }
 		public ICommand ButtonCommand { get; private set; }
+
 		public InputEmailViewModel() {
 			ButtonCommand = new RelayCommand(() => {
 				if (!Url.Contains("https://")) {
@@ -20,7 +21,7 @@ namespace Madome.ViewModels.Prepare {
 					{ "email", Email }
 				};
 				APIHelper.Instance.UrlRefresh(Url);
-				APIHelper.Instance.Post(Enum.API.RequestType.AUTH, json);
+				APIHelper.Instance.PostAsync(Enum.API.RequestType.AUTH, json);
 				Application.Current.MainPage.Navigation.PushAsync(new AuthPage(this));
 			});
 		}

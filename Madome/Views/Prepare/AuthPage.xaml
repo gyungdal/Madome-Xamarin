@@ -14,7 +14,7 @@
         <StackLayout >
             <customControl:HideLineEntry
                 x:Name="InputEntry"
-                Text="{Binding OTP, Mode=OneWayToSource}" HorizontalTextAlignment="Center"
+                Text="{Binding OTP, Mode=OneWayToSource}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                 Keyboard="Plain" HasBorder="False" IsTabStop="False" PlaceholderColor="{StaticResource placeholderText}"
                 FontSize="Medium" IsSpellCheckEnabled="False" TextColor="{StaticResource label}" ReturnCommand="{Binding ButtonCommand}"
                 IsTextPredictionEnabled="False" BackgroundColor="{StaticResource tertiarySystemBackground}"

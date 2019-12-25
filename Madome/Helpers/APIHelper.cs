@@ -5,6 +5,7 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 using Madome.Custom.Auth;
 using Madome.Enum.API;
 using Madome.Struct;
@@ -118,11 +119,19 @@ namespace Madome.Helpers {
 			return Request(Enum.API.HttpMethod.GET, uri, null);
 		}
 
+		public Task<HttpResponse> GetAsync(RequestType type, JObject body) {
+			return new Task<HttpResponse>(() => Get(type, body));
+		}
+
 		public HttpResponse Post(RequestType type, JObject body) {
 			Uri uri = new Uri(Url + type.GetString());
 			StringContent content = new StringContent(content: body.ToString(),
 										encoding: System.Text.Encoding.UTF8, mediaType: "application/json");
 			return Request(Enum.API.HttpMethod.POST, uri, content);
+		}
+
+		public Task<HttpResponse> PostAsync(RequestType type, JObject body) {
+			return new Task<HttpResponse>(() => Post(type, body));
 		}
 
 		public HttpResponse Delete(RequestType type, JObject body) {
@@ -139,11 +148,20 @@ namespace Madome.Helpers {
 			return Request(Enum.API.HttpMethod.DELETE, uri, null);
 		}
 
+		public Task<HttpResponse> DeleteAsync(RequestType type, JObject body) {
+			return new Task<HttpResponse>(() => Delete(type, body));
+		}
+
 		public HttpResponse Put(RequestType type, JObject body) {
 			Uri uri = new Uri(Url + type.GetString());
 			StringContent content = new StringContent(content: body.ToString(),
 										encoding: System.Text.Encoding.UTF8, mediaType: "application/json");
 			return Request(Enum.API.HttpMethod.PUT, uri, content);
 		}
+
+		public Task<HttpResponse> PutAsync(RequestType type, JObject body) {
+			return new Task<HttpResponse>(() => Put(type, body));
+		}
+
 	}
 }
