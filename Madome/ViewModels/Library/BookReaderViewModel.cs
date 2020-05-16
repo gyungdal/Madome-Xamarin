@@ -11,6 +11,8 @@ using Xamarin.Forms;
 namespace Madome.ViewModels.Library {
 	public class BookReaderViewModel : BaseViewModel {
 		public ObservableCollection<string> Images { get; set; }
+
+		public int CurrentIndex { get; set; }
 		public BookReaderViewModel(int id, string[] book) {
 			Images = new ObservableCollection<string>();
 			for (int i = 0; i < book.Length; i++) {
@@ -19,6 +21,7 @@ namespace Madome.ViewModels.Library {
 				Images.Add(builder.ToString());
 				Debug.WriteLine(Images[i]);
 			}
+			CurrentIndex = 0;
 		}
 	}
 }

@@ -1,28 +1,43 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Madome.Views.Library.BookReader"
              xmlns:library="clr-namespace:Madome.ViewModels.Library"
+             xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:proc="clr-namespace:PanCardView.Processors;assembly=PanCardView"
+             xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
              xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              BackgroundColor="Black"
-             ItemsSource="{Binding Path=Images, Mode=OneWay}"
              x:DataType="library:BookReaderViewModel">
-    <CarouselPage.ItemTemplate>
-        <DataTemplate>
-            <ContentPage>
-                <Grid Padding="10" BackgroundColor="Black">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <ffimageloading:CachedImage Grid.Row="0" x:DataType="x:String"
-                        MinimumHeightRequest="250" MinimumWidthRequest="250"
-                        HorizontalOptions="Fill" Source="{Binding .}" 
-                        VerticalOptions="Fill" DownsampleToViewSize="true" CacheType="Memory"
-                        Aspect="AspectFill" >
-                    </ffimageloading:CachedImage>
-                </Grid>
-            </ContentPage>
-        </DataTemplate>
-    </CarouselPage.ItemTemplate>
-</CarouselPage>
+    
+    <cards:CarouselView 
+        ItemsSource="{Binding Path=Images}"
+        SelectedIndex="{Binding CurrentIndex}">
+        <x:Arguments>
+            <proc:CarouselProcessor ScaleFactor="0.5" OpacityFactor="0" RotationFactor="0.1" />
+        </x:Arguments>
+
+        <cards:CarouselView.ItemTemplate>
+            <DataTemplate>
+                <ContentView>
+                    <Grid Padding="10" BackgroundColor="Black">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <ffimageloading:CachedImage Grid.Row="0" x:DataType="x:String"
+                            MinimumHeightRequest="250" MinimumWidthRequest="250"
+                            HorizontalOptions="Fill" Source="{Binding .}" 
+                            VerticalOptions="Fill" DownsampleToViewSize="true" CacheType="Memory"
+                            Aspect="AspectFill" >
+                        </ffimageloading:CachedImage>
+                    </Grid>
+                </ContentView>
+            </DataTemplate>
+        </cards:CarouselView.ItemTemplate>
+        
+        <controls:IndicatorsControl ToFadeDuration="1500"/>
+        <controls:LeftArrowControl ToFadeDuration="2500"/>
+        <controls:RightArrowControl ToFadeDuration="2500"/>
+    </cards:CarouselView>
+</ContentPage>

@@ -16,7 +16,7 @@ namespace Madome
     {
         public App()
         {
-            InitializeComponent();
+			InitializeComponent();
 			APIHelper.Instance.UrlRefresh();
 			IAccountManager Account = DependencyService.Get<IAccountManager>();
 			if (Account.HasToken) {

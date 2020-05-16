@@ -8,6 +8,8 @@ using Android.Widget;
 using Android.OS;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
+using PanCardView.Droid;
 
 namespace Madome.Droid {
 	[Activity(Label = "Madome", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
@@ -27,7 +29,8 @@ namespace Madome.Droid {
 			Madome.Resources.Screen.DPI = (int)Resources.DisplayMetrics.DensityDpi;
 			Madome.Resources.Screen.Density = Resources.DisplayMetrics.Density;
 			Madome.Resources.OS.Version = new Version((int)Android.OS.Build.VERSION.SdkInt, 0);
-			LoadApplication(new App());
+            CardsViewRenderer.Preserve();
+            LoadApplication(new App());
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
