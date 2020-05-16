@@ -27,7 +27,7 @@
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <MtouchFastDev>true</MtouchFastDev>
-    <CodesignKey>Apple Development: keunbyeol Hwang (4CNQR424QM)</CodesignKey>
+    <CodesignKey>Apple Distribution: Byeong-Su Kang (UP6EXS2HJJ)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
   </PropertyGroup>
@@ -52,7 +52,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <CodesignKey>Apple Development: keunbyeol Hwang (4CNQR424QM)</CodesignKey>
+    <CodesignKey>Apple Distribution: Byeong-Su Kang (UP6EXS2HJJ)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchFastDev>true</MtouchFastDev>

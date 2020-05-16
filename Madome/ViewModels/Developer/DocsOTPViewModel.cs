@@ -37,7 +37,7 @@ namespace Madome.ViewModels.Developer {
 			});
 		}
 
-		private async void Refresh() {
+		private void Refresh() {
 			AlreadyRequest = true;
 			HttpResponse response = APIHelper.Instance.Get(Enum.API.RequestType.OTP_GENERATE);
 			OTP = response.Body["otp_code"].ToString();

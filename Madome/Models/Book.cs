@@ -67,7 +67,7 @@ namespace Madome.Models {
 		public string[] Images { get; set; }
 		public bool Ready { get; set; }
 		public void ImageUpdate() {
-			Task.Run(async () => {
+			Task.Run(() => {
 				HttpResponse imageResponse = APIHelper.Instance.Get(String.Format(RequestType.GET_BOOK_IMAGE_LIST.GetString(), Id));
 				JArray images = (Newtonsoft.Json.Linq.JArray)imageResponse.Body["items"];
 				int index = 0;
