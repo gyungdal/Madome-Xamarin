@@ -50,7 +50,7 @@ namespace Madome.ViewModels.Library {
 			//DateTime.Parse(NewBook["created_at"].ToString(), null, System.Globalization.DateTimeStyles.RoundtripKind),
 			switch (response.Code) {
 				case System.Net.HttpStatusCode.OK: {
-					JArray NewBooks = (JArray)response.Body["items"];
+					JArray NewBooks = response.Body["items"] as JArray;
 					foreach (JToken NewBook in NewBooks) {
 						Book book = NewBook.ToObject<Book>();
 						book.ImageUpdate();

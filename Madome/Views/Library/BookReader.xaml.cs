@@ -7,7 +7,7 @@ using Xamarin.Forms.Xaml;
 
 namespace Madome.Views.Library {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class BookReader : ContentPage {
+	public partial class BookReader : CarouselPage {
 		private readonly BookReaderViewModel viewModel;
 		public BookReader(int id, string[] images) {
 			InitializeComponent();

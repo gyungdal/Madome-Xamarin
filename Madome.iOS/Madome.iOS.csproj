@@ -40,7 +40,8 @@
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <MtouchUseLlvm>true</MtouchUseLlvm>
-    <CodesignKey>Apple Development: Byeong-Su Kang (HE7YGT9BNG)</CodesignKey>
+    <CodesignKey>Apple Distribution: Byeong-Su Kang (UP6EXS2HJJ)</CodesignKey>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,12 +51,12 @@
     <DefineConstants>DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignKey>Apple Development: keunbyeol Hwang (4CNQR424QM)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchFastDev>true</MtouchFastDev>
-<RunCodeAnalysis>true</RunCodeAnalysis>  <MtouchHttpClientHandler>CFNetworkHandler</MtouchHttpClientHandler>
+<RunCodeAnalysis>true</RunCodeAnalysis>  <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
 </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -63,15 +64,14 @@
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
-    <CodesignKey>Apple Distribution: Byeong-Su Kang (UP6EXS2HJJ)</CodesignKey>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignKey>Apple Development: keunbyeol Hwang (4CNQR424QM)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchUseLlvm>true</MtouchUseLlvm>
 <RunCodeAnalysis>true</RunCodeAnalysis><DeviceSpecificBuild>true</DeviceSpecificBuild>
 <MtouchFastDev>true</MtouchFastDev>
 <BuildIpa>true</BuildIpa>
 <IpaIncludeArtwork>true</IpaIncludeArtwork>
-<CodesignProvision>Madome Xamarin Profile</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
