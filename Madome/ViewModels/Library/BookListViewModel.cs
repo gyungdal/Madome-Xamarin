@@ -35,9 +35,10 @@ namespace Madome.ViewModels.Library {
 
 			RefreshCommand = new RelayCommand(() => {
 				Page = 0;
-				IsRefreshing = true;
+				Books.Clear();
 				LoadingNext();
 				IsRefreshing = false;
+				OnPropertyChanged("IsRefreshing");
 			});
 
 			LoadNextPageCommnad.Execute(null);

@@ -18,7 +18,7 @@
             BackgroundColor="{StaticResource tertiarySystemBackground}"
 		    IsPullToRefreshEnabled="True"
             RefreshCommand="{Binding RefreshCommand}"
-            IsRefreshing="{Binding IsRefreshing}"
+              IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
             ItemAppearing="OnItemAppearing"
             ItemTapped="Handle_ItemTapped">
         <ListView.ItemTemplate> 
