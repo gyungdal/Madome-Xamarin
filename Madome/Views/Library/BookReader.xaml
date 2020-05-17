@@ -12,7 +12,12 @@
              BackgroundColor="Black"
              Title="{Binding Title, Mode=OneWay}"
              x:DataType="library:BookReaderViewModel">
-    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Page"
+                     Clicked="PageMoveClicked"
+                     Order="Primary"
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
     <cards:CarouselView 
         ItemsSource="{Binding Path=Images}"
         SelectedIndex="{Binding CurrentIndex}">
@@ -34,7 +39,7 @@
             </DataTemplate>
         </cards:CarouselView.ItemTemplate>
         
-        <panControls:IndicatorsControl MaximumVisibleIndicatorsCount="10" ToFadeDuration="1500"/>
+        <panControls:IndicatorsControl MaximumVisibleIndicatorsCount="26" ToFadeDuration="1500"/>
         <panControls:LeftArrowControl ToFadeDuration="2500"/>
         <panControls:RightArrowControl ToFadeDuration="2500"/>
     </cards:CarouselView>

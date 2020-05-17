@@ -41,7 +41,8 @@
 <LangVersion>latest</LangVersion>
 <AndroidUseAapt2>true</AndroidUseAapt2>
 <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
-<AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
+<AndroidSupportedAbis>armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
+<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType></DebugType>
