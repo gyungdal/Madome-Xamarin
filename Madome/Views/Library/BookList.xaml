@@ -14,11 +14,11 @@
     <ListView x:Name="BookListView"
             HasUnevenRows="True"
             ItemsSource="{Binding Books, Mode=OneWay}"
-            CachingStrategy="RecycleElement"
+              CachingStrategy="RecycleElementAndDataTemplate"
             BackgroundColor="{StaticResource tertiarySystemBackground}"
 		    IsPullToRefreshEnabled="True"
             RefreshCommand="{Binding RefreshCommand}"
-              IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+            IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
             ItemAppearing="OnItemAppearing"
             ItemTapped="Handle_ItemTapped">
         <ListView.ItemTemplate> 
@@ -48,29 +48,29 @@
                         </Grid.ColumnDefinitions>
 
                         <ffimageloading:CachedImage Grid.Row="0" Grid.RowSpan="5" Grid.Column="0"
-                            x:DataType="x:String" HorizontalOptions="Center" Source="{Binding Path=Thumb, Mode=OneTime}" 
+                            HorizontalOptions="Center" Source="{Binding Path=Thumb, Mode=OneTime}" 
                             VerticalOptions="Center" DownsampleToViewSize="true" CacheType="All"
                             Aspect="AspectFit" HeightRequest="150" WidthRequest="150">
                         </ffimageloading:CachedImage>
 
-                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Title, Mode=OneTime}" x:DataType="x:String"
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Title, Mode=OneTime}"
                                LineBreakMode="WordWrap" MaxLines="2" TextColor="{StaticResource label}"
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
                             FontFamily="Bold" FontSize="Large" />
-                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=ArtistsLine, Mode=OneTime}" x:DataType="x:String"
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=ArtistsLine, Mode=OneTime}"
                                LineBreakMode="TailTruncation" TextColor="{StaticResource label}"
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
                             FontFamily="Bold" FontSize="Body" />
-                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding IdWithType, Mode=OneTime}" x:DataType="x:String"
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding IdWithType, Mode=OneTime}"
                                Font="Default" TextColor="{StaticResource label}"
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
                                LineBreakMode="WordWrap"/>
-                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding Path=SeriesLine, Mode=OneTime}" x:DataType="x:String"
-                               Font="Small" TextColor="{StaticResource label}" MaxLines="2"
+                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding Path=SeriesLine, Mode=OneTime}"
+                               Font="Small" TextColor="{StaticResource label}" 
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
                                LineBreakMode="WordWrap"/>
-                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding Path=TagsLine, Mode=OneTime}" x:DataType="x:String"
-                               Font="Small" TextColor="{StaticResource label}" MaxLines="3"
+                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding Path=TagsLine, Mode=OneTime}"
+                               Font="Small" TextColor="{StaticResource label}" 
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
                                LineBreakMode="WordWrap"/>
                     </Grid>

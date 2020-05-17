@@ -27,7 +27,7 @@
                 <control:ZoomableContentView>
                     <control:ZoomableContentView.Content>
                         <ffimageloading:CachedImage x:DataType="x:String"
-                            MinimumHeightRequest="250" MinimumWidthRequest="250"
+                            MinimumHeightRequest="250" MinimumWidthRequest="250" FadeAnimationForCachedImages="True"
                             DownsampleToViewSize="True" Source="{Binding .}" CacheType="All"
                             Aspect="AspectFit" >
                         </ffimageloading:CachedImage>
