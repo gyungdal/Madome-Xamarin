@@ -10,17 +10,21 @@ using Xamarin.Forms;
 
 namespace Madome.ViewModels.Library {
 	public class BookReaderViewModel : BaseViewModel {
-		public ObservableCollection<string> Images { get; set; }
+		public ObservableCollection<string> Images { get; private set; }
 
-		public int CurrentIndex { get; set; }
-		public BookReaderViewModel(int id, string[] book) {
-			Images = new ObservableCollection<string>();
-			for (int i = 0; i < book.Length; i++) {
-				StringBuilder builder = new StringBuilder(APIHelper.Instance.Url);
-				builder.Append(String.Format(RequestType.GET_BOOK_IMAGE.GetString(), id, book[i]));
-				Images.Add(builder.ToString());
-				Debug.WriteLine(Images[i]);
+		private int _currentIndex;
+		public int CurrentIndex {
+			get => _currentIndex;
+			set {
+				_currentIndex = value;
+				OnPropertyChanged("Title");
 			}
+		}
+		public string Title {
+			get => $"{CurrentIndex} / {Images.Count}";
+		}
+		public BookReaderViewModel(string[] images) {
+			Images = new ObservableCollection<string>(images);
 			CurrentIndex = 0;
 		}
 	}

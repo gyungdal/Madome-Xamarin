@@ -10,6 +10,7 @@
              xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              BackgroundColor="Black"
+             Title="{Binding Title, Mode=OneWay}"
              x:DataType="library:BookReaderViewModel">
     
     <cards:CarouselView 
@@ -25,7 +26,7 @@
                     <control:ZoomableContentView.Content>
                         <ffimageloading:CachedImage x:DataType="x:String"
                             MinimumHeightRequest="250" MinimumWidthRequest="250"
-                            Source="{Binding .}" CacheType="Memory"
+                            Source="{Binding .}" CacheType="All"
                             Aspect="AspectFit" >
                         </ffimageloading:CachedImage>
                     </control:ZoomableContentView.Content>
@@ -33,7 +34,7 @@
             </DataTemplate>
         </cards:CarouselView.ItemTemplate>
         
-        <panControls:IndicatorsControl ToFadeDuration="1500"/>
+        <panControls:IndicatorsControl MaximumVisibleIndicatorsCount="10" ToFadeDuration="1500"/>
         <panControls:LeftArrowControl ToFadeDuration="2500"/>
         <panControls:RightArrowControl ToFadeDuration="2500"/>
     </cards:CarouselView>

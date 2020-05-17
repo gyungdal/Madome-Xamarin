@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Text;
 using System.Threading.Tasks;
 using Madome.Custom.Converter;
 using Madome.Enum.API;
@@ -62,9 +63,9 @@ namespace Madome.Models {
 		}
 
 		public string Thumb
-			=> APIHelper.Instance.Url + String.Format(RequestType.GET_BOOK_IMAGE.GetString(), Id, Images[0]);
+			=> Images[0];
 		
-		public string[] Images { get; set; }
+		public string[] Images { get; private set; }
 		public bool Ready { get; set; }
 		public void ImageUpdate() {
 			Task.Run(() => {
@@ -72,8 +73,11 @@ namespace Madome.Models {
 				JArray images = (Newtonsoft.Json.Linq.JArray)imageResponse.Body["items"];
 				int index = 0;
 				Images = new string[images.Count];
+				string format = RequestType.GET_BOOK_IMAGE.GetString();
 				foreach (string image in images) {
-					Images[index] = image;
+					StringBuilder builder = new StringBuilder(APIHelper.Instance.Url);
+					builder.AppendFormat(format, Id, image);
+					Images[index] = builder.ToString();
 					index += 1;
 				}
 				OnPropertyChanged("Images");

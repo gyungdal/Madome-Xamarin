@@ -49,7 +49,7 @@ namespace Madome.Views.Library {
 			//Deselect Item
 			((ListView)sender).SelectedItem = null;
 			if (book.Ready) {
-				await Navigation.PushAsync(new BookReader(book.Id, book.Images));
+				await Navigation.PushAsync(new BookReader(book.Images));
 			} else {
 				await DisplayAlert("Now Loading...", "로딩중...", "OK");
 			}
