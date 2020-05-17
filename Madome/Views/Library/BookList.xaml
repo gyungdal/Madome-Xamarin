@@ -26,13 +26,15 @@
                 <ViewCell>
                     <ViewCell.ContextActions>
                         <MenuItem Clicked="OnMore"
+                                  x:DataType="x:String"
                                   CommandParameter="{Binding .}"
                                   Text="More" />
                         <MenuItem Clicked="OnDelete"
+                                  x:DataType="x:String"
                                   CommandParameter="{Binding .}"
                                   Text="Delete" IsDestructive="True" />
                     </ViewCell.ContextActions>
-                    <Grid HeightRequest="150" x:DataType="struct:Book">
+                    <Grid MinimumHeightRequest="150" x:DataType="struct:Book">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -46,28 +48,28 @@
                         </Grid.ColumnDefinitions>
 
                         <ffimageloading:CachedImage Grid.Row="0" Grid.RowSpan="5" Grid.Column="0"
-                            HorizontalOptions="Center" Source="{Binding Path=Thumb, Mode=OneTime}" 
+                            x:DataType="x:String" HorizontalOptions="Center" Source="{Binding Path=Thumb, Mode=OneTime}" 
                             VerticalOptions="Center" DownsampleToViewSize="true" CacheType="All"
                             Aspect="AspectFit" HeightRequest="150" WidthRequest="150">
                         </ffimageloading:CachedImage>
 
-                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Title, Mode=OneTime}"
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Title, Mode=OneTime}" x:DataType="x:String"
                                LineBreakMode="WordWrap" MaxLines="2" TextColor="{StaticResource label}"
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
                             FontFamily="Bold" FontSize="Large" />
-                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=ArtistsLine, Mode=OneTime}"
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=ArtistsLine, Mode=OneTime}" x:DataType="x:String"
                                LineBreakMode="TailTruncation" TextColor="{StaticResource label}"
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
                             FontFamily="Bold" FontSize="Body" />
-                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding IdWithType, Mode=OneTime}"
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding IdWithType, Mode=OneTime}" x:DataType="x:String"
                                Font="Default" TextColor="{StaticResource label}"
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
                                LineBreakMode="WordWrap"/>
-                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding Path=SeriesLine, Mode=OneTime}"
+                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding Path=SeriesLine, Mode=OneTime}" x:DataType="x:String"
                                Font="Small" TextColor="{StaticResource label}" MaxLines="2"
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
                                LineBreakMode="WordWrap"/>
-                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding Path=TagsLine, Mode=OneTime}"
+                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding Path=TagsLine, Mode=OneTime}" x:DataType="x:String"
                                Font="Small" TextColor="{StaticResource label}" MaxLines="3"
                                HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand"
                                LineBreakMode="WordWrap"/>
