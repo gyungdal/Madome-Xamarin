@@ -7,6 +7,7 @@ using System.Windows.Input;
 using Madome.Enum.API;
 using Madome.Helpers;
 using Madome.Models;
+using Madome.Views.Library;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xamarin.Forms;

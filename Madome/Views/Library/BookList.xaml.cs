@@ -42,7 +42,7 @@ namespace Madome.Views.Library {
 			DisplayAlert("Delete Context Action", mi.CommandParameter + " delete context action", "OK");
 		}
 
-		async void Handle_ItemTapped(object sender, ItemTappedEventArgs e) {
+		public async void Handle_ItemTapped(object sender, ItemTappedEventArgs e) {
 			if (e.Item == null)
 				return;
 			Book book = (Book)e.Item;
@@ -56,7 +56,7 @@ namespace Madome.Views.Library {
 		}
 
 
-		void OnItemAppearing(object Sender, ItemVisibilityEventArgs e) {
+		public void OnItemAppearing(object Sender, ItemVisibilityEventArgs e) {
 			Book item = (Book)e.Item;
 			if (!viewModel.IsRefreshing && item == viewModel.Books.Last()) {
 				viewModel.LoadingNextAsync().Start();

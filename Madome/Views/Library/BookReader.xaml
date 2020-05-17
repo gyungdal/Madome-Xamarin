@@ -21,7 +21,7 @@
         <cards:CarouselView.ItemTemplate>
             <DataTemplate>
                 <ContentView>
-                    <Grid Padding="10" BackgroundColor="Black">
+                    <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
