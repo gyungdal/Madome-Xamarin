@@ -49,7 +49,7 @@
 
                         <ffimageloading:CachedImage Grid.Row="0" Grid.RowSpan="5" Grid.Column="0"
                             HorizontalOptions="Center" Source="{Binding Path=Thumb, Mode=OneTime}" 
-                            VerticalOptions="Center" DownsampleToViewSize="true" CacheType="All"
+                            VerticalOptions="Center" DownsampleToViewSize="true" CacheType="Disk"
                             Aspect="AspectFit" HeightRequest="150" WidthRequest="150">
                         </ffimageloading:CachedImage>
 
