@@ -41,14 +41,14 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
                         <ffimageloading:CachedImage Grid.Row="0" Grid.RowSpan="5" Grid.Column="0"
-                            HorizontalOptions="Center" Source="{Binding Path=Thumb}" 
-                            VerticalOptions="Center" DownsampleToViewSize="true" CacheType="Memory"
-                            Aspect="AspectFill" HeightRequest="150" WidthRequest="150">
+                            HorizontalOptions="Center" Source="{Binding Path=Thumb, Mode=OneTime}" 
+                            VerticalOptions="Center" DownsampleToViewSize="true" CacheType="All"
+                            Aspect="AspectFit" HeightRequest="150" WidthRequest="150">
                         </ffimageloading:CachedImage>
 
                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Title, Mode=OneTime}"

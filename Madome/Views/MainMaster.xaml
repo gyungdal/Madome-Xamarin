@@ -5,7 +5,7 @@
              Title="≡">
     <StackLayout>
         <ListView x:Name="MenuItemsListView" SeparatorVisibility="None"
-                  HasUnevenRows="true" ItemsSource="{Binding MenuItems}">
+                  HasUnevenRows="true" ItemsSource="{Binding MenuItems, Mode=OneTime}">
             <ListView.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
