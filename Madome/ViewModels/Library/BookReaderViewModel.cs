@@ -17,11 +17,12 @@ namespace Madome.ViewModels.Library {
 			get => _currentIndex;
 			set {
 				_currentIndex = value;
+				OnPropertyChanged("CurrentIndex");
 				OnPropertyChanged("Title");
 			}
 		}
 		public string Title {
-			get => $"{CurrentIndex} / {Images.Count}";
+			get => $"{CurrentIndex + 1} / {Images.Count}";
 		}
 		public BookReaderViewModel(string[] images) {
 			Images = new ObservableCollection<string>(images);

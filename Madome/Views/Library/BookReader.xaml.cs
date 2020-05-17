@@ -16,13 +16,13 @@ namespace Madome.Views.Library {
 		}
 
 		public async void PageMoveClicked(System.Object sender, System.EventArgs e) {
-			string result = await DisplayPromptAsync("Move Page", "", placeholder: viewModel.CurrentIndex.ToString(), keyboard: Keyboard.Numeric);
+			string result = await DisplayPromptAsync("Move Page", "", placeholder: (viewModel.CurrentIndex + 1).ToString(), keyboard: Keyboard.Numeric);
 			Int32 page = -1 ;
 			if(Int32.TryParse(result, out page)) {
-				if (page < 0 || page >= viewModel.Images.Count) {
+				if (page < 1 || page > viewModel.Images.Count) {
 					await DisplayAlert("Alert", "You have been alerted", "OK");
 				} else {
-					viewModel.CurrentIndex = page;
+					viewModel.CurrentIndex = (page - 1);
 				}
 			}
 		}
