@@ -4,7 +4,8 @@
              x:Class="Madome.Views.MainMaster"
              Title="≡">
     <StackLayout>
-        <ListView x:Name="MenuItemsListView" SeparatorVisibility="None"
+        <ListView x:Name="MenuItemsListView" SeparatorVisibility="Default"
+                  BackgroundColor="{StaticResource tertiarySystemBackground}"
                   HasUnevenRows="true" ItemsSource="{Binding MenuItems, Mode=OneTime}">
             <ListView.Header>
                 <Grid>
