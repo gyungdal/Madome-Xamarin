@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Madome.Views.Library.BookReader"
              xmlns:library="clr-namespace:Madome.ViewModels.Library"
+             xmlns:control="clr-namespace:Madome.Custom.Control"
              xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
              xmlns:proc="clr-namespace:PanCardView.Processors;assembly=PanCardView"
-             xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
+             xmlns:panControls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
              xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              BackgroundColor="Black"
@@ -20,24 +21,20 @@
 
         <cards:CarouselView.ItemTemplate>
             <DataTemplate>
-                <ContentView>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <ffimageloading:CachedImage Grid.Row="0" x:DataType="x:String"
+                <control:ZoomableContentView>
+                    <control:ZoomableContentView.Content>
+                        <ffimageloading:CachedImage x:DataType="x:String"
                             MinimumHeightRequest="250" MinimumWidthRequest="250"
-                            HorizontalOptions="Fill" Source="{Binding .}" 
-                            VerticalOptions="Fill" DownsampleToViewSize="true" CacheType="Memory"
-                            Aspect="AspectFill" >
+                            Source="{Binding .}" CacheType="Memory"
+                            Aspect="AspectFit" >
                         </ffimageloading:CachedImage>
-                    </Grid>
-                </ContentView>
+                    </control:ZoomableContentView.Content>
+                </control:ZoomableContentView>   
             </DataTemplate>
         </cards:CarouselView.ItemTemplate>
         
-        <controls:IndicatorsControl ToFadeDuration="1500"/>
-        <controls:LeftArrowControl ToFadeDuration="2500"/>
-        <controls:RightArrowControl ToFadeDuration="2500"/>
+        <panControls:IndicatorsControl ToFadeDuration="1500"/>
+        <panControls:LeftArrowControl ToFadeDuration="2500"/>
+        <panControls:RightArrowControl ToFadeDuration="2500"/>
     </cards:CarouselView>
 </ContentPage>

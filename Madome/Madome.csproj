@@ -44,6 +44,7 @@
     <Folder Include="Enum\API\" />
     <Folder Include="ViewModels\Library\" />
     <Folder Include="Custom\Converter\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Resources\AppTheme.cs" />
