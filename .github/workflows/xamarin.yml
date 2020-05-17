@@ -12,12 +12,12 @@ jobs:
         nuget restore
         cd Madome.Android
         msbuild Madome.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
-        
-  iOS:
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: iOS
-      run: |
-        nuget restore
-        msbuild Madome.iOS/Madome.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
+
+#  iOS:
+#    runs-on: macos-latest
+#    steps:
+#    - uses: actions/checkout@v1
+#    - name: iOS
+#      run: |
+#        nuget restore
+#        msbuild Madome.iOS/Madome.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
