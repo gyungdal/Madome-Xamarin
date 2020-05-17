@@ -20,6 +20,7 @@ namespace Madome.ViewModels.Library {
 		public bool IsRefreshing { get; set; }
 		private bool AlreadyLoading { get; set; }
 		private int Page;
+
 		public BookListViewModel() {
 			Page = 0;
 			AlreadyLoading = false;
@@ -34,7 +35,9 @@ namespace Madome.ViewModels.Library {
 
 			RefreshCommand = new RelayCommand(() => {
 				Page = 0;
+				IsRefreshing = true;
 				LoadingNext();
+				IsRefreshing = false;
 			});
 
 			LoadNextPageCommnad.Execute(null);

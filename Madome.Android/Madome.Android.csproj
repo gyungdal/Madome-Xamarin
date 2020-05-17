@@ -55,7 +55,6 @@
 <AndroidLinkTool>r8</AndroidLinkTool>
 <JavaMaximumHeapSize>2G</JavaMaximumHeapSize>
 <RunCodeAnalysis>true</RunCodeAnalysis><LangVersion>latest</LangVersion>
-<PlatformTarget>x64</PlatformTarget>
 <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
 <AndroidSupportedAbis>armeabi-v7a;arm64-v8a;x86;x86_64</AndroidSupportedAbis>
 </PropertyGroup>

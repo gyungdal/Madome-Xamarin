@@ -5,7 +5,7 @@ using System.Reflection;
 namespace Madome.Enum.API {
 	public enum RequestType {
 		[Description("/v1/auth/send-mail")]
-		AUTH,
+		SEND_AUTH_MAIL,
 		[Description("/v2/auth/token")]
 		TOKEN,
 		[Description("/v2/auth/otp")]

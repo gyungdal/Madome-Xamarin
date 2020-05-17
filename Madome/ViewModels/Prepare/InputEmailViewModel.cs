@@ -21,7 +21,7 @@ namespace Madome.ViewModels.Prepare {
 					{ "email", Email }
 				};
 				APIHelper.Instance.UrlRefresh(Url);
-				APIHelper.Instance.PostAsync(Enum.API.RequestType.AUTH, json).Start();
+				APIHelper.Instance.PostAsync(Enum.API.RequestType.SEND_AUTH_MAIL, json).Start();
 				Application.Current.MainPage.Navigation.PushAsync(new AuthPage(this));
 			});
 		}

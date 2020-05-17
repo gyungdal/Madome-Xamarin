@@ -16,7 +16,7 @@
             ItemsSource="{Binding Books, Mode=OneWay}"
             CachingStrategy="RecycleElement"
             BackgroundColor="{StaticResource tertiarySystemBackground}"
-		    IsPullToRefreshEnabled="False"
+		    IsPullToRefreshEnabled="True"
             RefreshCommand="{Binding RefreshCommand}"
             IsRefreshing="{Binding IsRefreshing}"
             ItemAppearing="OnItemAppearing"

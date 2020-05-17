@@ -21,9 +21,6 @@
     <cards:CarouselView 
         ItemsSource="{Binding Path=Images}"
         SelectedIndex="{Binding CurrentIndex}">
-        <x:Arguments>
-            <proc:CarouselProcessor ScaleFactor="0.5" OpacityFactor="0" RotationFactor="0.1" />
-        </x:Arguments>
 
         <cards:CarouselView.ItemTemplate>
             <DataTemplate>
@@ -31,7 +28,7 @@
                     <control:ZoomableContentView.Content>
                         <ffimageloading:CachedImage x:DataType="x:String"
                             MinimumHeightRequest="250" MinimumWidthRequest="250"
-                            Source="{Binding .}" CacheType="All"
+                            DownsampleToViewSize="True" Source="{Binding .}" CacheType="All"
                             Aspect="AspectFit" >
                         </ffimageloading:CachedImage>
                     </control:ZoomableContentView.Content>
