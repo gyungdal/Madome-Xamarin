@@ -18,15 +18,15 @@ namespace Madome.Custom.Factory
         }
         public string GetKey(ImageSource imageSource, object bindingContext)
         {
-            if (imageSource == null){
-                return null;
+            if (imageSource != null)
+            {
+                UriImageSource uriImageSource = imageSource as UriImageSource;
+                if (uriImageSource != null)
+                    return GetHash(uriImageSource.Uri.ToString());
+                else
+                    throw new NotImplementedException("ImageSource type not supported");
             }
-
-            UriImageSource uriImageSource = imageSource as UriImageSource;
-            if (uriImageSource != null)
-                return GetHash(uriImageSource.Uri.ToString());
-            else
-                throw new NotImplementedException("ImageSource type not supported");
+            return null;
         }
     }
 }
