@@ -5,6 +5,7 @@
              xmlns:library="clr-namespace:Madome.ViewModels.Library"
              xmlns:struct="clr-namespace:Madome.Models"
              xmlns:control="clr-namespace:Madome.Custom.Control"
+             xmlns:factory="clr-namespace:Madome.Custom.Factory"
              xmlns:converter="clr-namespace:Madome.Custom.Converter"
              BackgroundColor="{StaticResource tertiarySystemBackground}"
              x:Class="Madome.Views.Library.BookList"
@@ -51,6 +52,9 @@
                             HorizontalOptions="Center" Source="{Binding Path=Thumb, Mode=OneTime}" 
                             VerticalOptions="Center" DownsampleToViewSize="true" CacheType="Disk"
                             Aspect="AspectFit" HeightRequest="150" WidthRequest="150">
+                            <ffimageloading:CachedImage.CacheKeyFactory>
+                                <factory:CustomFfmpegCacheKeyFactory />
+                            </ffimageloading:CachedImage.CacheKeyFactory>
                         </ffimageloading:CachedImage>
 
                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Title, Mode=OneTime}"

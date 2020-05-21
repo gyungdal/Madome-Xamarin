@@ -4,6 +4,7 @@
              x:Class="Madome.Views.Library.BookReader"
              xmlns:library="clr-namespace:Madome.ViewModels.Library"
              xmlns:control="clr-namespace:Madome.Custom.Control"
+             xmlns:factory="clr-namespace:Madome.Custom.Factory"
              xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
              xmlns:proc="clr-namespace:PanCardView.Processors;assembly=PanCardView"
              xmlns:panControls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
@@ -30,7 +31,9 @@
                             MinimumHeightRequest="250" MinimumWidthRequest="250" FadeAnimationForCachedImages="True"
                             DownsampleToViewSize="True" Source="{Binding .}" CacheType="Disk"
                             Aspect="AspectFit" >
-                        </ffimageloading:CachedImage>
+                            <ffimageloading:CachedImage.CacheKeyFactory>
+                                <factory:CustomFfmpegCacheKeyFactory />
+                            </ffimageloading:CachedImage.CacheKeyFactory>                        </ffimageloading:CachedImage>
                     </control:ZoomableContentView.Content>
                 </control:ZoomableContentView>   
             </DataTemplate>
